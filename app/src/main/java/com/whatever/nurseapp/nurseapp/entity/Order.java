@@ -11,6 +11,17 @@ public class Order {
     private String time;
     private int type; // 1:内科 2:外科 3:妇产科
     private int situation; //付款状态
+    private String timeZone;
+
+    /**
+     * 临时数据
+     */
+    private String patient;
+    private String bed_number;
+    private String contact;
+    private String phone;
+
+
 
     public Order() {}
 

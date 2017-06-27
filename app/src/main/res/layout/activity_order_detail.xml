@@ -8,7 +8,7 @@
     tools:context="com.whatever.nurseapp.nurseapp.activity.OrderDetailActivity">
 
     <RelativeLayout
-        android:id="@+id/first_layout"
+        android:id="@+id/relativeLayout_1"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:background="#ffffff">
@@ -24,54 +24,342 @@
             android:layout_marginLeft="20dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="16dp"
-            android:text="订单编号:"
-            android:textSize="14sp"
-            android:textStyle="bold" />
+            android:text="订单编号"
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/order_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="20170627094200"
             android:layout_alignTop="@+id/order_id_tag"
+            android:layout_marginLeft="4dp"
+            android:layout_toEndOf="@+id/order_id_tag"
             android:layout_toRightOf="@+id/order_id_tag"
-            android:layout_toEndOf="@+id/order_id_tag" />
+            android:text="20170627094200" />
 
         <TextView
             android:id="@+id/time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="2017.06.27 09:42"
             android:layout_alignBaseline="@+id/order_id"
             android:layout_alignBottom="@+id/order_id"
-            android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="20dp"
             android:layout_marginRight="20dp"
-            android:layout_marginEnd="20dp" />
+            android:text="2017.06.27 09:42" />
 
         <TextView
             android:id="@+id/situation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/time"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="16dp"
             android:text="已付款"
             android:textColor="@color/colorAccent"
             android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="16dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/order_id_tag"
-            android:layout_alignStart="@+id/order_id_tag" />
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/order_id_tag"
+            android:layout_marginBottom="16dp"
+            android:text="250.00"
+            android:textColor="@color/colorAccent"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/relativeLayout_2"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginTop="12dp"
-        android:background="#ffffff"
-        android:layout_below="@+id/first_layout"
+        android:layout_height="240dp"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/relativeLayout_1"
+        android:layout_marginTop="12dp"
+        android:background="#ffffff">
+
+        <TextView
+            android:id="@+id/patient_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="16dp"
+            android:text="被护理人"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/patient"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/patient_tag"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@+id/patient_tag"
+            android:text="牛欢喜"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/bed_number_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/patient_tag"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="16dp"
+            android:text="床　　位"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/bed_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/bed_number_tag"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@+id/patient_tag"
+            android:text="PG12138"
+            android:textStyle="bold" />
+
+        <View
+            android:id="@+id/spread_line_1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/bed_number_tag"
+            android:layout_marginTop="16dp"
+            android:background="#dddddd" />
+
+        <TextView
+            android:id="@+id/contact_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/spread_line_1"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="16dp"
+            android:text="联  系  人"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/contact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/contact_tag"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@+id/contact_tag"
+            android:text="牛大春"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/phone_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/contact_tag"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="16dp"
+            android:text="联系电话"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/phone_tag"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@+id/contact_tag"
+            android:text="17717712138"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/type_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/phone_tag"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="16dp"
+            android:text="护理类型"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/type_tag"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@+id/contact_tag"
+            android:text="外科护理"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/service_time_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/type_tag"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="16dp"
+            android:text="护理时间"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/service_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/service_time_tag"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@+id/contact_tag"
+            android:text="2017.06.28 09:00 - 2017.06.29 09:00"
+            android:textStyle="bold" />
+
     </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout_3"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/relativeLayout_2"
+        android:layout_marginTop="11dp"
+        android:background="#ffffff">
+
+
+        <ImageView
+            android:id="@+id/avatar"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="18dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="20dp"
+            app:srcCompat="@mipmap/avatar" />
+
+        <TextView
+            android:id="@+id/nurse_name_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/avatar"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="4dp"
+            android:layout_toRightOf="@+id/avatar"
+            android:text="护工姓名"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/nurse_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/nurse_name_tag"
+            android:layout_marginLeft="8dp"
+            android:layout_toEndOf="@+id/nurse_name_tag"
+            android:layout_toRightOf="@+id/nurse_name_tag"
+            android:text="花则累" />
+
+        <TextView
+            android:id="@+id/evaluation_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/nurse_name_tag"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@+id/avatar"
+            android:text="评　　价" />
+
+        <TextView
+            android:id="@+id/evaluation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/evaluation_tag"
+            android:layout_marginLeft="8dp"
+            android:layout_toEndOf="@+id/evaluation_tag"
+            android:layout_toRightOf="@+id/evaluation_tag"
+            android:text="★★★☆☆"
+            android:textColor="@color/colorAccent" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/evaluation_tag"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@+id/avatar"
+
+            >
+
+            <TextView
+                android:id="@+id/height"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="身高" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="2dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="2dp"
+                android:src="#dddddd" />
+
+            <TextView
+                android:id="@+id/weight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="体重" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="2dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="2dp"
+                android:src="#dddddd" />
+
+            <TextView
+                android:id="@+id/blood_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="血型" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/accept"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="接单"
+        android:layout_below="@+id/relativeLayout_3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/reject"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/accept"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="4dp"
+        android:text="拒绝" />
+
 
 </RelativeLayout>
