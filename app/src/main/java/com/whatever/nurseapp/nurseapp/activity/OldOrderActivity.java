@@ -41,6 +41,7 @@ public class OldOrderActivity extends AppCompatActivity {
                 bundle.putString("time", order.getTime());
                 bundle.putInt("type", order.getType());
                 bundle.putInt("situation", order.getSituation());
+                bundle.putInt("choseNurse", order.getChoosedNurse());
                 Intent intent = new Intent(OldOrderActivity.this, OrderDetailActivity.class);
                 intent.putExtras(bundle);
                 startActivity(intent);

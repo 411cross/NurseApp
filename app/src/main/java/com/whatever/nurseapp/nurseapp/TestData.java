@@ -10,20 +10,20 @@ import java.util.ArrayList;
 
 public class TestData {
 
-    private Order order_1 = new Order("20170627100001", "250.00", "2017.06.17", 1, 0);
-    private Order order_2 = new Order("20170627100002", "300.00", "2017.06.17", 2, 1);
-    private Order order_3 = new Order("20170627100003", "1000.00", "2017.06.17", 3, 1);
-    private Order order_4 = new Order("20170627100004", "300.00", "2017.06.17", 3, 3);
-    private Order order_5 = new Order("20170627100005", "250.00", "2017.06.17", 1, 2);
-    private Order order_6 = new Order("20170627100006", "300.00", "2017.06.17", 2, 2);
-    private Order order_7 = new Order("20170627100007", "1000.00", "2017.06.17", 2, 3);
-    private Order order_8 = new Order("20170627100008", "250.00", "2017.06.17", 1, 0);
-    private Order order_9 = new Order("20170627100009", "300.00", "2017.06.17", 2, 1);
-    private Order order_10 = new Order("20170627100010", "1000.00", "2017.06.17", 3, 1);
-    private Order order_11 = new Order("20170627100011", "300.00", "2017.06.17", 1, 2);
-    private Order order_12 = new Order("20170627100012", "250.00", "2017.06.17", 2, 1);
-    private Order order_13 = new Order("20170627100013", "300.00", "2017.06.17", 3, 0);
-    private Order order_14 = new Order("20170627100014", "1000.00", "2017.06.17", 1, 1);
+    private Order order_1 = new Order("20170627100001", "250.00", "2017.06.17", 1, 0, 0);
+    private Order order_2 = new Order("20170627100002", "300.00", "2017.06.17", 2, 1, 1);
+    private Order order_3 = new Order("20170627100003", "1000.00", "2017.06.17", 3, 1, 1);
+    private Order order_4 = new Order("20170627100004", "300.00", "2017.06.17", 3, 3, 1);
+    private Order order_5 = new Order("20170627100005", "250.00", "2017.06.17", 1, 2, 1);
+    private Order order_6 = new Order("20170627100006", "300.00", "2017.06.17", 2, 2, 1);
+    private Order order_7 = new Order("20170627100007", "1000.00", "2017.06.17", 2, 3, 1);
+    private Order order_8 = new Order("20170627100008", "250.00", "2017.06.17", 1, 0, 1);
+    private Order order_9 = new Order("20170627100009", "300.00", "2017.06.17", 2, 1, 0);
+    private Order order_10 = new Order("20170627100010", "1000.00", "2017.06.17", 3, 1, 1);
+    private Order order_11 = new Order("20170627100011", "300.00", "2017.06.17", 1, 2, 1);
+    private Order order_12 = new Order("20170627100012", "250.00", "2017.06.17", 2, 1, 1);
+    private Order order_13 = new Order("20170627100013", "300.00", "2017.06.17", 3, 0, 1);
+    private Order order_14 = new Order("20170627100014", "1000.00", "2017.06.17", 1, 1, 1);
 
     private ArrayList<Order> newOrderList = new ArrayList<>();
     private ArrayList<Order> oldOrderList = new ArrayList<>();

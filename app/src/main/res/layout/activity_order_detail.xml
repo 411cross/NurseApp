@@ -226,15 +226,14 @@
 
 
     <RelativeLayout
-        android:id="@+id/relativeLayout_3"
+        android:id="@+id/nurseInfo_relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/relativeLayout_2"
-        android:layout_marginTop="11dp"
+        android:layout_marginTop="12dp"
         android:background="#ffffff">
-
 
         <ImageView
             android:id="@+id/avatar"
@@ -342,13 +341,35 @@
 
     </RelativeLayout>
 
+    <RelativeLayout
+        android:id="@+id/addNurse_relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/relativeLayout_2"
+        android:layout_marginTop="12dp"
+        android:background="#ffffff">
+
+        <Button
+            android:id="@+id/add_button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="+  添加护工"
+            android:textSize="18sp"
+            android:textAlignment="center"
+            android:gravity="center_vertical"
+            android:background="#ffffff"/>
+
+    </RelativeLayout>
+
     <Button
         android:id="@+id/accept"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
         android:text="接单"
-        android:layout_below="@+id/relativeLayout_3"
+        android:layout_below="@+id/nurseInfo_relativeLayout"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -367,7 +388,17 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
         android:text="提醒"
-        android:layout_below="@+id/relativeLayout_3"
+        android:layout_below="@+id/nurseInfo_relativeLayout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/finish"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="完成"
+        android:layout_below="@+id/nurseInfo_relativeLayout"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
