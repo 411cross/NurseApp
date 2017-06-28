@@ -9,8 +9,9 @@ public class Order {
     private String orderID;
     private String price;
     private String time;
-    private int type; // 1:内科 2:外科 3:妇产科
-    private int situation; //付款状态
+    private int type; //护理类型: 1.内科 2.外科 3.妇产科
+    private int situation; //订单状态: 0.未付款 1.已付款 2.已取消 3.已完成 4.进行中 5.已提醒付款
+    private int notified = 0;
     private String timeZone;
 
     /**
@@ -72,5 +73,13 @@ public class Order {
 
     public void setSituation(int situation) {
         this.situation = situation;
+    }
+
+    public int getNotified() {
+        return notified;
+    }
+
+    public void setNotified(int notified) {
+        this.notified = notified;
     }
 }

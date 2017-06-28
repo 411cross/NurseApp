@@ -9,8 +9,10 @@ import android.widget.ListView;
 
 import com.whatever.nurseapp.nurseapp.R;
 import com.whatever.nurseapp.nurseapp.TestData;
+import com.whatever.nurseapp.nurseapp.TestFather;
 import com.whatever.nurseapp.nurseapp.adapter.OrderAdapter;
 import com.whatever.nurseapp.nurseapp.entity.Order;
+import com.whatever.nurseapp.nurseapp.util.OrderOperations;
 
 import java.util.ArrayList;
 
@@ -23,7 +25,7 @@ public class OldOrderActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_old_order);
-        orderList = new TestData().getOrderList_2();
+        orderList = TestFather.getTestData().getOldOrderList();
         OrderAdapter orderAdapter = new OrderAdapter(OldOrderActivity.this, R.layout.layout_order_item, orderList);
         ListView orderListView = (ListView) findViewById(R.id.old_order_list);
         orderListView.setAdapter(orderAdapter);
@@ -32,6 +34,8 @@ public class OldOrderActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Order order = orderList.get(i);
                 Bundle bundle = new Bundle();
+                bundle.putInt("parentActivity", 1);
+                bundle.putInt("position", i);
                 bundle.putString("orderID", order.getOrderID());
                 bundle.putString("price", order.getPrice());
                 bundle.putString("time", order.getTime());

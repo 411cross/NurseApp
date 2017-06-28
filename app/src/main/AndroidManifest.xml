@@ -17,11 +17,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity.HomeActivity"/>
+        <activity android:name=".activity.NurseManageActivity"/>
         <activity
             android:name=".activity.NewOrderActivity"
             android:label="新订单" />
-        <activity android:name=".activity.OldOrderActivity" />
-        <activity android:name=".activity.OrderDetailActivity"></activity>
+        <activity android:name=".activity.OldOrderActivity"
+            android:label="历史订单"/>
+        <activity android:name=".activity.OrderDetailActivity"
+            android:label="订单详情"></activity>
+
     </application>
 
 </manifest>
