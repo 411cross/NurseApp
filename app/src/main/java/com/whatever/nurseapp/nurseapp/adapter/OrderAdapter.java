@@ -36,12 +36,14 @@ public class OrderAdapter extends ArrayAdapter<Order>{
         TextView priceTv = (TextView) view.findViewById(R.id.price);
         TextView timeTv = (TextView) view.findViewById(R.id.time);
         TextView situationTv = (TextView) view.findViewById(R.id.situation);
+        TextView choseNurseTv = (TextView) view.findViewById(R.id.chose_nurse);
         ImageView icon = (ImageView) view.findViewById(R.id.icon);
 
         orderIDTv.setText(order.getOrderID());
         priceTv.setText(order.getPrice());
         timeTv.setText(order.getTime());
 
+        //判断护理类型，选择相应的图标展示
         int type = order.getType();
         int image_id;
         switch (type) {
@@ -60,6 +62,7 @@ public class OrderAdapter extends ArrayAdapter<Order>{
         }
         icon.setImageResource(image_id);
 
+        //判断订单情况，展示不同的TextView
         int situation = order.getSituation();
         switch (situation) {
             case 0:
@@ -82,6 +85,13 @@ public class OrderAdapter extends ArrayAdapter<Order>{
                 break;
             default:
                 break;
+        }
+
+        //判断选择护工情况，展示不同的TextView
+        if (order.getChoosedNurse() == 1) {
+            choseNurseTv.setText("已选择护工");
+        } else {
+            choseNurseTv.setText("未选择护工");
         }
 
         return view;

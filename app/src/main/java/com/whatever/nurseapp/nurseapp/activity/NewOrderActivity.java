@@ -45,6 +45,7 @@ public class NewOrderActivity extends AppCompatActivity {
                 bundle.putInt("type", order.getType());
                 bundle.putInt("situation", order.getSituation());
                 bundle.putInt("notified", order.getNotified());
+                bundle.putInt("choseNurse", order.getChoosedNurse());
                 Intent intent = new Intent(NewOrderActivity.this, OrderDetailActivity.class);
                 intent.putExtras(bundle);
                 startActivityForResult(intent, 1);
@@ -65,12 +66,24 @@ public class NewOrderActivity extends AppCompatActivity {
                     int start = orderListView.getFirstVisiblePosition();
                     View view = orderListView.getChildAt(position - start);
                     TextView refresh = (TextView) view.findViewById(R.id.situation);
-                    if (situation == 4) {
-                        refresh.setText("进行中");
-                    } else if (situation == 5) {
-                        refresh.setText("已提醒付款");
-                    } else if (situation == 2) {
-                        refresh.setText("已取消");
+
+                    switch (situation) {
+                        case 1:
+                            break;
+                        case 2:
+                            refresh.setText("已取消");
+                            break;
+                        case 3:
+                            refresh.setText("已完成");
+                            break;
+                        case 4:
+                            refresh.setText("进行中");
+                            break;
+                        case 5:
+                            refresh.setText("已提醒付款");
+                            break;
+                        default:
+                            break;
                     }
                 }
 

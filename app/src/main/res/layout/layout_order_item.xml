@@ -88,18 +88,29 @@
         android:layout_marginTop="16dp" />
 
     <TextView
+        android:id="@+id/chose_nurse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="未选择护工"
+        android:textColor="@color/colorAccent"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginEnd="20dp"
+        android:layout_alignTop="@+id/price"
+
+        android:layout_alignParentEnd="true" />
+
+    <TextView
         android:id="@+id/situation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="30dp"
-        android:layout_marginRight="30dp"
+        android:layout_alignEnd="@+id/chose_nurse"
         android:text="已付款"
         android:textColor="@color/colorAccent"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:textStyle="bold"
-        android:layout_above="@+id/time"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignBottom="@+id/time"
+         />
 
 
 </RelativeLayout>

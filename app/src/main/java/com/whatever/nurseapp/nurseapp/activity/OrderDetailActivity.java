@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,13 +37,13 @@ public class OrderDetailActivity extends AppCompatActivity {
         Bundle bundle = this.getIntent().getExtras();
         int parentActivity = bundle.getInt("parentActivity");
         position = bundle.getInt("position");
-        System.out.println(position);
         final String orderID = bundle.getString("orderID");
         String price = bundle.getString("price");
         String time = bundle.getString("time");
         int type = bundle.getInt("type");
         final int situation = bundle.getInt("situation");
-        int notified =  bundle.getInt("notified");
+        int notified = bundle.getInt("notified");
+        int choseNurse = bundle.getInt("choseNurse");
 
         TextView orderIDTv = (TextView) findViewById(R.id.order_id);
         TextView timeTv = (TextView) findViewById(R.id.time);
@@ -59,9 +60,13 @@ public class OrderDetailActivity extends AppCompatActivity {
         TextView heightTV = (TextView) findViewById(R.id.height);
         TextView weightTv = (TextView) findViewById(R.id.weight);
         TextView bloodType = (TextView) findViewById(R.id.blood_type);
+        Button addBtn = (Button) findViewById(R.id.add_button);
+        final Button finishBtn = (Button) findViewById(R.id.finish);
         final Button acceptBtn = (Button) findViewById(R.id.accept);
         final Button rejectBtn = (Button) findViewById(R.id.reject);
         final Button notifyBtn = (Button) findViewById(R.id.notify);
+        RelativeLayout nurseInfo = (RelativeLayout) findViewById(R.id.nurseInfo_relativeLayout);
+        final RelativeLayout addNurse = (RelativeLayout) findViewById(R.id.addNurse_relativeLayout);
 
         orderIDTv.setText(orderID);
         priceTv.setText(price);
@@ -80,6 +85,7 @@ public class OrderDetailActivity extends AppCompatActivity {
             default:
                 break;
         }
+
         switch (situation) {
             case 0:
                 situationTv.setText("未付款");
@@ -122,6 +128,24 @@ public class OrderDetailActivity extends AppCompatActivity {
             rejectBtn.setVisibility(View.INVISIBLE);
         }
 
+        if (situation == 2 && choseNurse == 0) {
+            nurseInfo.setVisibility(View.INVISIBLE);
+            addNurse.setVisibility(View.INVISIBLE);
+        }
+
+        if (situation == 4) {
+            finishBtn.setVisibility(View.VISIBLE);
+        } else {
+            finishBtn.setVisibility(View.INVISIBLE);
+        }
+
+        if (choseNurse == 1) {
+            addNurse.setVisibility(View.INVISIBLE);
+        } else {
+            nurseInfo.setVisibility(View.INVISIBLE);
+        }
+
+
         /**
          * 接单按钮
          * 实现确定接单之后刷新当前Activity的状态成"进行中"，并传送状态更改给上一层Activity
@@ -144,6 +168,7 @@ public class OrderDetailActivity extends AppCompatActivity {
                                 situationTv.setText("进行中");
                                 acceptBtn.setVisibility(View.INVISIBLE);
                                 rejectBtn.setVisibility(View.INVISIBLE);
+                                finishBtn.setVisibility(View.VISIBLE);
                                 Bundle bundle = new Bundle();
                                 bundle.putInt("position", position);
                                 bundle.putInt("situation", 4);
@@ -167,8 +192,8 @@ public class OrderDetailActivity extends AppCompatActivity {
         });
 
         /**
-         * 接单按钮
-         * 实现确定接单之后刷新当前Activity的状态成"进行中"，并传送状态更改给上一层Activity
+         * 拒绝按钮
+         * 实现确定接单之后刷新当前Activity的状态成"已取消"，并传送状态更改给上一层Activity
          * 同时将接单按钮和拒绝按钮设置为不可见
          */
         rejectBtn.setOnClickListener(new View.OnClickListener() {
@@ -190,6 +215,7 @@ public class OrderDetailActivity extends AppCompatActivity {
                                 situationTv.setText("已取消");
                                 acceptBtn.setVisibility(View.INVISIBLE);
                                 rejectBtn.setVisibility(View.INVISIBLE);
+                                addNurse.setVisibility(View.INVISIBLE);
                                 Bundle bundle = new Bundle();
                                 bundle.putInt("position", position);
                                 bundle.putInt("situation", 2);
@@ -251,6 +277,54 @@ public class OrderDetailActivity extends AppCompatActivity {
                         create();
                 alertDialog.show();
 
+            }
+        });
+
+        finishBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                LayoutInflater layoutInflater = LayoutInflater.from(OrderDetailActivity.this);
+//                final View myLoginView = layoutInflater.inflate(R.layout.user_address, null);
+                AlertDialog alertDialog = new AlertDialog.Builder(OrderDetailActivity.this).
+                        setMessage("确认完成？").
+                        setPositiveButton("确定", new DialogInterface.OnClickListener() {
+
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                // TODO Auto-generated method stub
+                                TestFather.getTestData().getOrderAccepted().add(orderID);
+                                TestFather.getTestData().getNewOrderList().get(position).setSituation(3);
+                                TestFather.getTestData().getOldOrderList().add(TestFather.getTestData().getNewOrderList().get(position));
+                                TestFather.getTestData().getNewOrderList().remove(position);
+                                situationTv.setText("已完成");
+                                finishBtn.setVisibility(View.INVISIBLE);
+                                Bundle bundle = new Bundle();
+                                bundle.putInt("position", position);
+                                bundle.putInt("situation", 3);
+                                Intent intent = new Intent();
+                                intent.putExtras(bundle);
+                                // 设置返回结果为RESULT_OK, intent可以传入一些其他的参数, 在onActivityResult中的data中可以获取到
+                                setResult(RESULT_OK, intent);
+                            }
+                        }).
+                        setNegativeButton("取消", new DialogInterface.OnClickListener() {
+
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                // TODO Auto-generated method stub
+                            }
+                        }).
+                        create();
+                alertDialog.show();
+
+            }
+        });
+
+        addBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(OrderDetailActivity.this, ChooseNurseActivity.class);
+                startActivity(intent);
             }
         });
 
