@@ -6,58 +6,61 @@ package com.whatever.nurseapp.nurseapp.entity;
 
 public class Order {
 
-    private String orderID;
-    private String price;
-    private String time;
+    private String id;
+    private String totalPrice;
+    private String createTime;
+    private String serviceTime;
     private int type; //护理类型: 1.内科 2.外科 3.妇产科
     private int situation; //订单状态: 0.未付款 1.已付款 2.已取消 3.已完成 4.进行中 5.已提醒付款
-    private int notified = 0;
-    private String timeZone;
     private int choseNurse = 1;
 
-    /**
-     * 临时数据
-     */
-    private String patient;
-    private String bed_number;
-    private String contact;
-    private String phone;
+    private Nurse nurse = null;
+    private Patient patient = null;
+    private User user = null;
 
-
-
-    public Order() {}
-
-    public Order(String orderID, String price, String time, int type, int situation, int choseNurse) {
-        setOrderID(orderID);
-        setPrice(price);
-        setTime(time);
-        setType(type);
-        setSituation(situation);
-        setChoosedNurse(choseNurse);
+    public Order(String id, String totalPrice, String createTime, String serviceTime, int type, int situation, int choseNurse, Nurse nurse, Patient patient, User user) {
+        this.id = id;
+        this.totalPrice = totalPrice;
+        this.createTime = createTime;
+        this.serviceTime = serviceTime;
+        this.type = type;
+        this.situation = situation;
+        this.choseNurse = choseNurse;
+        this.nurse = nurse;
+        this.patient = patient;
+        this.user = user;
     }
 
-    public String getOrderID() {
-        return orderID;
+    public String getId() {
+        return id;
     }
 
-    public void setOrderID(String orderID) {
-        this.orderID = orderID;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getPrice() {
-        return price;
+    public String getTotalPrice() {
+        return totalPrice;
     }
 
-    public void setPrice(String price) {
-        this.price = price;
+    public void setTotalPrice(String totalPrice) {
+        this.totalPrice = totalPrice;
     }
 
-    public String getTime() {
-        return time;
+    public String getCreateTime() {
+        return createTime;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
+    }
+
+    public String getServiceTime() {
+        return serviceTime;
+    }
+
+    public void setServiceTime(String serviceTime) {
+        this.serviceTime = serviceTime;
     }
 
     public int getType() {
@@ -76,19 +79,12 @@ public class Order {
         this.situation = situation;
     }
 
-    public int getNotified() {
-        return notified;
-    }
-
-    public void setNotified(int notified) {
-        this.notified = notified;
-    }
-
-    public int getChoosedNurse() {
+    public int getChoseNurse() {
         return choseNurse;
     }
 
-    public void setChoosedNurse(int choosedNurse) {
-        this.choseNurse = choosedNurse;
+    public void setChoseNurse(int choseNurse) {
+        this.choseNurse = choseNurse;
     }
+
 }
