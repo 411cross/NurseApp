@@ -255,7 +255,6 @@ public class OrderDetailActivity extends AppCompatActivity {
                                 // TODO Auto-generated method stub
                                 TestFather.getTestData().getOrderAccepted().add(orderID);
                                 TestFather.getTestData().getNewOrderList().get(position).setSituation(5);
-                                TestFather.getTestData().getNewOrderList().get(position).setNotified(1);
                                 situationTv.setText("已提醒付款");
                                 notifyBtn.setText("再次提醒");
                                 Bundle bundle = new Bundle();

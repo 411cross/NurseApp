@@ -39,13 +39,12 @@ public class NewOrderActivity extends AppCompatActivity {
                 Bundle bundle = new Bundle();
                 bundle.putInt("parentActivity", 0);
                 bundle.putInt("position", i);
-                bundle.putString("orderID", order.getOrderID());
-                bundle.putString("price", order.getPrice());
-                bundle.putString("time", order.getTime());
+                bundle.putString("orderID", order.getId());
+                bundle.putString("price", order.getTotalPrice());
+                bundle.putString("time", order.getCreateTime());
                 bundle.putInt("type", order.getType());
                 bundle.putInt("situation", order.getSituation());
-                bundle.putInt("notified", order.getNotified());
-                bundle.putInt("choseNurse", order.getChoosedNurse());
+                bundle.putInt("choseNurse", order.getChoseNurse());
                 Intent intent = new Intent(NewOrderActivity.this, OrderDetailActivity.class);
                 intent.putExtras(bundle);
                 startActivityForResult(intent, 1);
