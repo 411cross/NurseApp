@@ -5,89 +5,198 @@
     android:layout_height="match_parent"
     android:weightSum="1">
 
+    <!--<ImageView-->
+        <!--android:id="@+id/imageView"-->
+        <!--android:layout_width="100dp"-->
+        <!--android:layout_height="100dp"-->
+        <!--app:srcCompat="@mipmap/ic_launcher"-->
+        <!--android:layout_weight="0.07"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_alignParentStart="true" />-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/textView3"-->
+        <!--android:layout_width="50dp"-->
+        <!--android:gravity="center"-->
+        <!--android:layout_height="30dp"-->
+        <!--android:text="姓名:"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_toEndOf="@+id/imageView" />-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/editText2"-->
+        <!--android:layout_width="150dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:ems="10"-->
+        <!--android:inputType="textPersonName"-->
+        <!--android:text="Name"-->
+        <!--android:gravity="center_vertical"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_toRightOf="@+id/textView3"-->
+        <!--android:layout_alignBottom="@+id/textView3" />-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/textView6"-->
+        <!--android:layout_width="50dp"-->
+        <!--android:layout_height="30dp"-->
+        <!--android:text="收费:"-->
+        <!--android:gravity="center"-->
+        <!--android:layout_below="@+id/textView3"-->
+        <!--android:layout_toRightOf="@+id/imageView"-->
+        <!--android:layout_toEndOf="@+id/imageView" />-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/textView7"-->
+        <!--android:layout_width="150dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/editText2"-->
+        <!--android:layout_toRightOf="@+id/textView6"-->
+        <!--android:text="price"-->
+        <!--android:gravity="center_vertical"-->
+        <!--android:layout_alignBottom="@+id/textView6" />-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/textView8"-->
+        <!--android:layout_width="50dp"-->
+        <!--android:layout_height="30dp"-->
+        <!--android:layout_below="@+id/textView6"-->
+        <!--android:layout_toRightOf="@+id/imageView"-->
+        <!--android:text="好评度:"-->
+        <!--android:gravity="center"-->
+        <!--android:layout_toLeftOf="@+id/textView7"-->
+        <!--android:layout_toStartOf="@+id/textView7" />-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/textView9"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignBottom="@+id/textView8"-->
+        <!--android:layout_toRightOf="@+id/textView8"-->
+        <!--android:text="Evaluate"-->
+        <!--android:gravity="center_vertical"-->
+        <!--android:layout_below="@+id/textView6"-->
+        <!--android:layout_alignRight="@+id/textView7"-->
+        <!--android:layout_alignEnd="@+id/textView7" />-->
+
+    <!--<Button-->
+        <!--android:id="@+id/button_fuck"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="编辑"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--android:layout_alignBottom="@+id/textView9" />-->
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        app:srcCompat="@mipmap/ic_launcher"
-        android:layout_weight="0.07"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginLeft="10dp"
+        android:src="@mipmap/ic_launcher"
+        android:id="@+id/NurseIcon"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
-
     <TextView
-        android:id="@+id/textView3"
-        android:layout_width="50dp"
-        android:gravity="center"
-        android:layout_height="30dp"
-        android:text="姓名:"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/imageView"
-        android:layout_toEndOf="@+id/imageView" />
-
-    <TextView
-        android:id="@+id/editText2"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        android:gravity="center_vertical"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/textView3"
-        android:layout_alignBottom="@+id/textView3" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="50dp"
-        android:layout_height="30dp"
-        android:text="收费:"
-        android:gravity="center"
-        android:layout_below="@+id/textView3"
-        android:layout_toRightOf="@+id/imageView"
-        android:layout_toEndOf="@+id/imageView" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/editText2"
-        android:layout_toRightOf="@+id/textView6"
-        android:text="price"
-        android:gravity="center_vertical"
-        android:layout_alignBottom="@+id/textView6" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="50dp"
-        android:layout_height="30dp"
-        android:layout_below="@+id/textView6"
-        android:layout_toRightOf="@+id/imageView"
-        android:text="好评度:"
-        android:gravity="center"
-        android:layout_toLeftOf="@+id/textView7"
-        android:layout_toStartOf="@+id/textView7" />
-
-    <TextView
-        android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView8"
-        android:layout_toRightOf="@+id/textView8"
-        android:text="Evaluate"
-        android:gravity="center_vertical"
-        android:layout_below="@+id/textView6"
-        android:layout_alignRight="@+id/textView7"
-        android:layout_alignEnd="@+id/textView7" />
-
-    <Button
-        android:id="@+id/button5"
+        android:text="名字"
+        android:textSize="30sp"
+        android:id="@+id/NurseName"
+        android:layout_marginLeft="11dp"
+        android:layout_marginStart="11dp"
+        android:layout_alignTop="@id/NurseIcon"
+        android:layout_toRightOf="@id/NurseIcon"
+        android:layout_toEndOf="@id/NurseIcon"
+        android:layout_marginTop="8dp" />
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="编辑"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignBottom="@+id/textView9" />
+        android:layout_below="@id/NurseName"
+        android:layout_marginTop="11dp"
+        android:layout_alignLeft="@id/NurseName"
+        android:layout_alignStart="@id/NurseName"
+        android:id="@+id/linearLayout">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="性别"
+            android:id="@+id/NurseSex"
+            />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:src="#909090"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="年龄"
+            android:id="@+id/NurseAge"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:src="#909090"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="地区"
+            android:id="@+id/NurseArea"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="价格"
+        android:id="@+id/NursePrice"
+        android:textSize="15sp"
+        android:gravity="left"
+        android:layout_alignBottom="@id/NurseName"
+        android:layout_toRightOf="@id/NurseIcon"
+        android:layout_marginLeft="150dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="好评率："
+        android:id="@+id/NurseEvaluateD"
+        android:layout_below="@+id/NurseIcon"
+        android:layout_alignStart="@+id/NurseIcon" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="护理范围"
+        android:id="@+id/filed"
+        android:layout_marginTop="13dp"
+        android:layout_below="@+id/linearLayout"
+        android:layout_alignStart="@+id/linearLayout" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="联系电话"
+        android:id="@+id/textView_tel"
+        android:layout_alignBaseline="@+id/NurseEvaluateD"
+        android:layout_alignBottom="@+id/NurseEvaluateD"
+        android:layout_alignStart="@+id/linearLayout" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="民族"
+        android:layout_marginRight="30dp"
+        android:id="@+id/nation"
+        android:layout_alignBaseline="@+id/textView_tel"
+        android:layout_alignBottom="@+id/textView_tel"
+        android:layout_toEndOf="@+id/linearLayout" />
+
+
 
 </RelativeLayout>

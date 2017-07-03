@@ -1,10 +1,12 @@
 package com.whatever.nurseapp.nurseapp.entity;
 
+import java.io.Serializable;
+
 /**
  * Created by derrickJ on 2017/6/27.
  */
 
-public class Order {
+public class Order implements Serializable{
 
     private String id;
     private String totalPrice;
@@ -15,6 +17,31 @@ public class Order {
     private int choseNurse = 1;
 
     private Nurse nurse = null;
+
+    public Nurse getNurse() {
+        return nurse;
+    }
+
+    public void setNurse(Nurse nurse) {
+        this.nurse = nurse;
+    }
+
+    public Patient getPatient() {
+        return patient;
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     private Patient patient = null;
     private User user = null;
 

@@ -13,7 +13,8 @@ import java.util.ArrayList;
 
 public class TestData {
 
-    private Nurse nurse = new Nurse("123", 45, "1", "jj", 78, 78);
+    int[] s1 = {1};
+    private Nurse nurse = new Nurse("牛大",123456,0,20,10, "广东", 90, 150, s1, 150, 100, "A", "汉族", "123identify", "双鱼座", "鼠", "fit", "7569");
     private User user = new User();
     private Patient patient = new Patient();
 
@@ -67,4 +68,4 @@ public class TestData {
         return orderAccepted;
     }
 
-}
+    }
