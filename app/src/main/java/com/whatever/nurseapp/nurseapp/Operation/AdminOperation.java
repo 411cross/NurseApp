@@ -19,6 +19,7 @@ public class AdminOperation {
 
     public static ArrayList<String> nurseNameList = null;
     public static ArrayList<Nurse> nurseListAll = null;
+    public static ArrayList<Nurse> areaNurseList = null;
     public static ArrayList<Order> orderList = null;
 
     /**
@@ -27,7 +28,7 @@ public class AdminOperation {
      * 输出 状态码和返回信息
      */
 
-    public static ArrayList UserLogin(String id, String pass) throws JSONException, ExecutionException, InterruptedException {
+    public static ArrayList AdminLogin(String id, String pass) throws JSONException, ExecutionException, InterruptedException {
 
         okHttpTools okht = new okHttpTools();
         String URL = "http://139.199.226.190:8080/api/v1/getInfo";
