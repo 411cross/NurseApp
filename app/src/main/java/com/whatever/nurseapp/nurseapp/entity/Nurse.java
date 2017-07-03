@@ -1,5 +1,9 @@
 package com.whatever.nurseapp.nurseapp.entity;
 
+import android.content.Intent;
+
+import java.util.ArrayList;
+
 public class Nurse {
     private String nurseName; //姓名
     private int nurseId; //id
@@ -9,7 +13,7 @@ public class Nurse {
     private String nurseArea; //地区
     private int nurseEvaluate; //评分
     private int nursePrice; //个人价格
-    private int[] nurseProtectArea; //护理范围
+    private ArrayList<Integer> nurseProtectArea; //护理范围
     private int nurseHeigt; //身高
     private int nurseWeight; //体重
     private String nurseBloodType; //血型
@@ -24,9 +28,29 @@ public class Nurse {
 
     }
 
-    public Nurse(String nurseName, int nurseId, int nurseSex, int nurseAge, int nurseWorkAge, String nurseArea, int nurseEvaluate, int nursePrice, int[] nurseProtectArea, int nurseHeigt, int nurseWeight, String nurseBloodType, String nurseNation, String nurseIdentity, String nurseConstellation, String nurseAnimal, String nurseDescription, String nursePhone) {
+    public Nurse(String nurseName, int nurseId, int nurseSex, int nurseAge, int nurseWorkAge, String nurseArea, int nurseEvaluate, int nursePrice, ArrayList<Integer> nurseProtectArea, int nurseHeigt, int nurseWeight, String nurseBloodType, String nurseNation, String nurseIdentity, String nurseConstellation, String nurseAnimal, String nurseDescription, String nursePhone) {
         this.setNurseName(nurseName);
         this.setNurseId(nurseId);
+        this.setNurseSex(nurseSex);
+        this.setNurseAge(nurseAge);
+        this.setNurseWorkAge(nurseWorkAge);
+        this.setNurseArea(nurseArea);
+        this.setNurseEvaluate(nurseEvaluate);
+        this.setNursePrice(nursePrice);
+        this.setNurseProtectArea(nurseProtectArea);
+        this.setNurseHeigt(nurseHeigt);
+        this.setNurseWeight(nurseWeight);
+        this.setNurseBloodType(nurseBloodType);
+        this.setNurseNation(nurseNation);
+        this.setNurseIdentity(nurseIdentity);
+        this.setNurseConstellation(nurseConstellation);
+        this.setNurseAnimal(nurseAnimal);
+        this.setNurseDescription(nurseDescription);
+        this.setNursePhone(nursePhone);
+    }
+
+    public Nurse(String nurseName, int nurseSex, int nurseAge, int nurseWorkAge, String nurseArea, int nurseEvaluate, int nursePrice, ArrayList<Integer> nurseProtectArea, int nurseHeigt, int nurseWeight, String nurseBloodType, String nurseNation, String nurseIdentity, String nurseConstellation, String nurseAnimal, String nurseDescription, String nursePhone) {
+        this.setNurseName(nurseName);
         this.setNurseSex(nurseSex);
         this.setNurseAge(nurseAge);
         this.setNurseWorkAge(nurseWorkAge);
@@ -110,11 +134,11 @@ public class Nurse {
         this.nursePrice = nursePrice;
     }
 
-    public int[] getNurseProtectArea() {
+    public ArrayList<Integer> getNurseProtectArea() {
         return nurseProtectArea;
     }
 
-    public void setNurseProtectArea(int[] nurseProtectArea) {
+    public void setNurseProtectArea(ArrayList<Integer> nurseProtectArea) {
         this.nurseProtectArea = nurseProtectArea;
     }
 

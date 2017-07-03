@@ -17,6 +17,8 @@ public class Order implements Serializable{
     private int choseNurse = 1;
 
     private Nurse nurse = null;
+    private Patient patient = null;
+    private User user = null;
 
     public Nurse getNurse() {
         return nurse;
@@ -42,8 +44,7 @@ public class Order implements Serializable{
         this.user = user;
     }
 
-    private Patient patient = null;
-    private User user = null;
+
 
     public Order(String id, String totalPrice, String createTime, String serviceTime, int type, int situation, int choseNurse, Nurse nurse, Patient patient, User user) {
         this.id = id;
