@@ -39,9 +39,9 @@ public class OrderAdapter extends ArrayAdapter<Order>{
         TextView choseNurseTv = (TextView) view.findViewById(R.id.chose_nurse);
         ImageView icon = (ImageView) view.findViewById(R.id.icon);
 
-        orderIDTv.setText(order.getOrderID());
-        priceTv.setText(order.getPrice());
-        timeTv.setText(order.getTime());
+        orderIDTv.setText(order.getId());
+        priceTv.setText(order.getTotalPrice());
+        timeTv.setText(order.getCreateTime());
 
         //判断护理类型，选择相应的图标展示
         int type = order.getType();
@@ -88,7 +88,7 @@ public class OrderAdapter extends ArrayAdapter<Order>{
         }
 
         //判断选择护工情况，展示不同的TextView
-        if (order.getChoosedNurse() == 1) {
+        if (order.getChoseNurse() == 1) {
             choseNurseTv.setText("已选择护工");
         } else {
             choseNurseTv.setText("未选择护工");

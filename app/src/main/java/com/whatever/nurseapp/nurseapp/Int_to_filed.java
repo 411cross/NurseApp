@@ -6,10 +6,10 @@ package com.whatever.nurseapp.nurseapp;
 
 public class Int_to_filed {
     public static String to_filed(int i){
-        String[] filed ={"头晕","老年痴呆","术后护理","植物人护理"};
+        String[] filed ={"头晕","老年痴呆","术后护理","植物人护理","产后"};
         return filed[i];
     }
     public static int filed_length(){
-        return 4;
+        return 5;
     }
 }

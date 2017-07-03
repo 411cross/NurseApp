@@ -35,6 +35,7 @@ public class OrderDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_order_detail);
 
         Bundle bundle = this.getIntent().getExtras();
+        Order od = (Order)getIntent().getSerializableExtra("order");
         int parentActivity = bundle.getInt("parentActivity");
         position = bundle.getInt("position");
         final String orderID = bundle.getString("orderID");
@@ -61,6 +62,7 @@ public class OrderDetailActivity extends AppCompatActivity {
         TextView weightTv = (TextView) findViewById(R.id.weight);
         TextView bloodType = (TextView) findViewById(R.id.blood_type);
         Button addBtn = (Button) findViewById(R.id.add_button);
+
         final Button finishBtn = (Button) findViewById(R.id.finish);
         final Button acceptBtn = (Button) findViewById(R.id.accept);
         final Button rejectBtn = (Button) findViewById(R.id.reject);
@@ -255,7 +257,6 @@ public class OrderDetailActivity extends AppCompatActivity {
                                 // TODO Auto-generated method stub
                                 TestFather.getTestData().getOrderAccepted().add(orderID);
                                 TestFather.getTestData().getNewOrderList().get(position).setSituation(5);
-                                TestFather.getTestData().getNewOrderList().get(position).setNotified(1);
                                 situationTv.setText("已提醒付款");
                                 notifyBtn.setText("再次提醒");
                                 Bundle bundle = new Bundle();
