@@ -90,9 +90,7 @@ public class OldOrderActivity extends AppCompatActivity {
 
 
                             Intent intent = new Intent(OldOrderActivity.this, OrderDetailActivity.class);
-//                            intent.putExtra("Order", order);
                             intent.putExtras(bundle);
-
                             startActivityForResult(intent, 1);
                         }
                     });

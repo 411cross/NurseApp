@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.whatever.nurseapp.nurseapp.Int_to_filed;
 import com.whatever.nurseapp.nurseapp.R;
+import com.whatever.nurseapp.nurseapp.entity.Nurse;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -66,7 +67,7 @@ public class UpdateNurse extends AppCompatActivity {
         String sex_bundle = bundle.getString("Nurse_sex");
         String area_bundle = bundle.getString("Nurse_Area");
         String price_bundle = bundle.getInt("Nurse_price") + "";
-        int[] filed_bundle = bundle.getIntArray("Nurse_filed");
+        ArrayList<Integer> filed_bundle = bundle.getIntegerArrayList("Nurse_filed");
         String evaluate_bundle = bundle.getInt("Nurse_evaluate") + "";
         String height_bundle = bundle.getInt("Nurse_height") + "";
         String weight_bundle = bundle.getInt("Nurse_weight") + "";
@@ -120,9 +121,9 @@ public class UpdateNurse extends AppCompatActivity {
         nation.setText(nation_bundle);
         constellation.setText(constellation_bundle);
         description.setText(description_bundle);
-        for (int i = 0; i < filed_bundle.length; i++) {
-            set_filed_bundle = set_filed_bundle + Int_to_filed.to_filed(filed_bundle[i]);
-            if (i % 2 == 0 && i != filed_bundle.length - 1) {
+        for (int i = 0; i < filed_bundle.size(); i++) {
+            set_filed_bundle = set_filed_bundle + Int_to_filed.to_filed(filed_bundle.get(i));
+            if (i % 2 == 0 && i != filed_bundle.size() - 1) {
                 set_filed_bundle += " ";
             }
         }
@@ -147,6 +148,10 @@ public class UpdateNurse extends AppCompatActivity {
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
+                                Intent intent = new Intent();
+                                intent.putExtra("id",id.getText().toString());
+                                setResult(0,intent);
+                                finish();
                             }
                         });
                 builder.setNegativeButton("取消",

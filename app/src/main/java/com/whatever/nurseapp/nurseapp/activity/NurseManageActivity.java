@@ -30,6 +30,8 @@ public class NurseManageActivity extends AppCompatActivity {
 
     private Button search_btn;
     private ListView listView1;
+    private TestData_nurse t;
+    private NurseAdapter nurseAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,9 +41,9 @@ public class NurseManageActivity extends AppCompatActivity {
         search_btn = (Button)findViewById(R.id.button_search);
 
 
-        TestData_nurse  t = new TestData_nurse();
+        t = new TestData_nurse();
         nurseList = t.getA();
-        NurseAdapter nurseAdapter = new NurseAdapter(NurseManageActivity.this, R.layout.nurse_detail,nurseList);
+        nurseAdapter = new NurseAdapter(NurseManageActivity.this, R.layout.nurse_detail,nurseList);
         listView1 = (ListView) findViewById(R.id.nurseList);
         listView1.setAdapter(nurseAdapter);
 
@@ -175,11 +177,11 @@ public class NurseManageActivity extends AppCompatActivity {
                     nurse_temp.setNurseConstellation(constellation);
                     nurse_temp.setNurseDescription(description);
                     String[] filed_array = filed.split(" ");
-                    ArrayList<Integer> filed_intarray = new ArrayList<>();
+                    ArrayList<Integer> filed_intarray = new ArrayList<>(filed_array.length);
                     for(int i = 0;i<filed_array.length;i++){
                         for(int n = 0;n< Int_to_filed.filed_length();n++){
                             if(filed_array[i].equals(Int_to_filed.to_filed(n))) {
-                                filed_intarray.set(i, n);
+                                filed_intarray.add(n);
                             }
                         }
                     }
@@ -206,6 +208,13 @@ public class NurseManageActivity extends AppCompatActivity {
                     }
                 }
 
+            }
+            if(resultCode == 0) {
+            Bundle bundle = data.getExtras();
+            int id = Integer.valueOf(bundle.getString("id")) ;
+            t.delete_Nurse(id);
+            nurseAdapter = new NurseAdapter(NurseManageActivity.this, R.layout.nurse_detail,t.getA());
+            listView1.setAdapter(nurseAdapter);
             }
         }
 }
