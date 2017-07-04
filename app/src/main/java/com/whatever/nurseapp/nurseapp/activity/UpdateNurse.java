@@ -150,7 +150,7 @@ public class UpdateNurse extends AppCompatActivity {
                             public void onClick(DialogInterface dialog, int which) {
                                 Intent intent = new Intent();
                                 intent.putExtra("id",id.getText().toString());
-                                setResult(0,intent);
+                                setResult(3,intent);
                                 finish();
                             }
                         });

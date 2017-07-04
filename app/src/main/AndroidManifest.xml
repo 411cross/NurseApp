@@ -32,8 +32,9 @@
             android:name=".activity.OrderDetailActivity"
             android:label="订单详情" />
         <activity android:name=".activity.ChooseNurseActivity" />
-        <activity android:name=".activity.MoreDetailActivity"></activity>
-        <activity android:name=".activity.AddNurseActivity"></activity>
+        <activity android:name=".activity.MoreDetailActivity" />
+        <activity android:name=".activity.AddNurseActivity" />
+        <activity android:name=".activity.AddNurse" />
     </application>
 
 </manifest>

@@ -45,6 +45,7 @@ public class NurseFragment extends android.support.v4.app.Fragment{
         ImageView nurseListBtn = (ImageView) view.findViewById(R.id.nurse_list_btn);
         ImageView addNurseBtn = (ImageView) view.findViewById(R.id.add_nurse_btn);
 
+
         nurseListBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

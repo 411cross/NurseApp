@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.whatever.nurseapp.nurseapp.Int_to_filed;
@@ -27,61 +28,54 @@ import java.util.ArrayList;
  */
 
 public class AddNurseActivity extends AppCompatActivity{
+    private Button save_button;
+    private EditText editText_name;
+    private EditText editText_id;
+    private RadioGroup sex;
+    private EditText editText_age;
+    private EditText editText_experience;
+    private EditText editText_area;
+    private EditText editText_price;
+    private EditText editText_protectArea;
+    private EditText editText_heigt;
+    private EditText editText_weight;
+    private EditText editText_bloodType;
+    private EditText editText_nation;
+    private EditText editText_identity;
+    private EditText editText_constellation;
+    private EditText editText_animal;
+    private EditText editText_description;
+    private EditText editText_phone;
 
-    private Button add_nurse_btn;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_nurse_manage);
+        setContentView(R.layout.activity_add_nurse);
+        editText_name = (EditText)findViewById(R.id.editText_name);
+        editText_id = (EditText)findViewById(R.id.editText_id);
+        sex = (RadioGroup)findViewById(R.id.sex);
+        editText_age = (EditText)findViewById(R.id.editText_age);
+        editText_experience = (EditText)findViewById(R.id.editText_experience);
+        editText_area = (EditText)findViewById(R.id.editText_area);
+        editText_protectArea = (EditText)findViewById(R.id.editText_protectArea);
+        editText_heigt = (EditText)findViewById(R.id.editText_heigt);
+        editText_weight = (EditText)findViewById(R.id.editText_weight);
+        editText_bloodType = (EditText)findViewById(R.id.editText_bloodType);
+        editText_nation = (EditText)findViewById(R.id.editText_nation);
+        editText_identity = (EditText)findViewById(R.id.editText_identity);
+        editText_constellation = (EditText)findViewById(R.id.editText_constellation);
+        editText_animal = (EditText)findViewById(R.id.editText_animal);
+        editText_description = (EditText)findViewById(R.id.editText_description);
+        editText_phone = (EditText)findViewById(R.id.editText_phone);
 
-        add_nurse_btn = (Button)findViewById(R.id.add_nurse_btn);
+        save_button = (Button)findViewById(R.id.button_save);
 
-
-
-
-        add_nurse_btn.setOnClickListener(new View.OnClickListener() {
+        save_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LayoutInflater layoutInflater = LayoutInflater.from(AddNurseActivity.this);
-                final View myLoginView = layoutInflater.inflate(R.layout.add_nurse_detail, null);
-                AlertDialog alertDialog = new AlertDialog.Builder(AddNurseActivity.this).
-                        setTitle("添加护工").setView(myLoginView).
-                        setPositiveButton("提交", new DialogInterface.OnClickListener() {
-
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                String sex;
-                                EditText ed_name = (EditText) myLoginView.findViewById(R.id.editText_name);
-                                //护工姓名
-                                EditText ed_age = (EditText)myLoginView.findViewById(R.id.editText_age);
-                                //护工年龄
-                                EditText ed_tel = (EditText)myLoginView.findViewById(R.id.editText_tel);
-                                //护工电话
-                                EditText ed_area =(EditText)myLoginView.findViewById(R.id.editText_area);
-                                //护工地址
-                                EditText ed_pricce =(EditText)myLoginView.findViewById(R.id.editText_price);
-                                //护工收费
-                                RadioButton male_btn = (RadioButton)myLoginView.findViewById(R.id.sex_male);
-                                RadioButton female_btn = (RadioButton)myLoginView.findViewById(R.id.sex_female);
-                                if (male_btn.isChecked())
-                                    sex = male_btn.getText().toString();
-                                else
-                                    sex = female_btn.getText().toString();
-
-                                Toast.makeText(AddNurseActivity.this, sex, Toast.LENGTH_SHORT).show();
-
-                            }
-                        }).setNegativeButton("取消", new DialogInterface.OnClickListener() {
-
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                    }
-                }).
-                        create();
-                alertDialog.show();
-            }
+                }
         });
 
     }

@@ -39,8 +39,7 @@ public class NurseManageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_nurse_manage);
 
         search_btn = (Button)findViewById(R.id.button_search);
-
-
+        
         t = new TestData_nurse();
         nurseList = t.getA();
         nurseAdapter = new NurseAdapter(NurseManageActivity.this, R.layout.nurse_detail,nurseList);
@@ -209,7 +208,7 @@ public class NurseManageActivity extends AppCompatActivity {
                 }
 
             }
-            if(resultCode == 0) {
+            if(resultCode == 3) {
             Bundle bundle = data.getExtras();
             int id = Integer.valueOf(bundle.getString("id")) ;
             t.delete_Nurse(id);
