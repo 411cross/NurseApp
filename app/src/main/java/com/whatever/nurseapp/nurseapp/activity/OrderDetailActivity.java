@@ -39,6 +39,7 @@ public class OrderDetailActivity extends AppCompatActivity {
 
         Bundle bundle = this.getIntent().getExtras();
         Order od = (Order)getIntent().getSerializableExtra("order");
+        System.out.println(od.getId());
         int parentActivity = bundle.getInt("parentActivity");
         position = bundle.getInt("position");
         final int orderID = bundle.getInt("orderID");
@@ -48,6 +49,23 @@ public class OrderDetailActivity extends AppCompatActivity {
         final int situation = bundle.getInt("situation");
         int notified = bundle.getInt("notified");
         int choseNurse = bundle.getInt("choseNurse");
+        String patient = bundle.getString("patient");
+        String bedNumber = bundle.getString("bed_number");
+        String contact = bundle.getString("contact");
+        String phone = bundle.getString("phone");
+        String serviceTime = bundle.getString("service_time");
+        String nurseName = bundle.getString("nurse_name");
+        int height = bundle.getInt("height");
+        int weight = bundle.getInt("weight");
+        int evaluation = bundle.getInt("evaluation");
+        String bloodType = bundle.getString("blood_type");
+
+//        bundle.putString("patient", order.getPatient().getName());
+//        bundle.putString("bed_number", order.getPatient().getBedNumber());
+//        bundle.putString("contact", order.getUser().getName());
+//        bundle.putString("phone", order.getUser().getId());
+//        bundle.putInt("type", order.getType());
+//        bundle.putString("service_time", order.getServiceTime());
 
         TextView orderIDTv = (TextView) findViewById(R.id.order_id);
         TextView timeTv = (TextView) findViewById(R.id.time);
@@ -61,9 +79,9 @@ public class OrderDetailActivity extends AppCompatActivity {
         TextView serviceTimeTv = (TextView) findViewById(R.id.service_time);
         TextView nurseTv = (TextView) findViewById(R.id.nurse_name);
         TextView evaluationTv = (TextView) findViewById(R.id.evaluation);
-        TextView heightTV = (TextView) findViewById(R.id.height);
+        TextView heightTv = (TextView) findViewById(R.id.height);
         TextView weightTv = (TextView) findViewById(R.id.weight);
-        TextView bloodType = (TextView) findViewById(R.id.blood_type);
+        TextView bloodTypeTv = (TextView) findViewById(R.id.blood_type);
         Button addBtn = (Button) findViewById(R.id.add_button);
 
         final Button finishBtn = (Button) findViewById(R.id.finish);
@@ -73,9 +91,20 @@ public class OrderDetailActivity extends AppCompatActivity {
         RelativeLayout nurseInfo = (RelativeLayout) findViewById(R.id.nurseInfo_relativeLayout);
         final RelativeLayout addNurse = (RelativeLayout) findViewById(R.id.addNurse_relativeLayout);
 
-        orderIDTv.setText(orderID);
+        orderIDTv.setText(String.valueOf(orderID));
         priceTv.setText(price);
         timeTv.setText(time);
+        patientTv.setText(patient);
+        bedNumberTv.setText(bedNumber);
+        contactTv.setText(contact);
+        phoneTv.setText(phone);
+        serviceTimeTv.setText(serviceTime);
+        nurseTv.setText(nurseName);
+        evaluationTv.setText(String.valueOf(evaluation));
+        heightTv.setText(String.valueOf(height));
+        weightTv.setText(String.valueOf(weight));
+        bloodTypeTv.setText(bloodType);
+
 
         switch (type) {
             case 1:

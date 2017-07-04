@@ -1,5 +1,6 @@
 package com.whatever.nurseapp.nurseapp.Operation;
 
+import com.google.gson.Gson;
 import com.whatever.nurseapp.nurseapp.Okhttp_tools.okHttpTools;
 import com.whatever.nurseapp.nurseapp.entity.Nurse;
 
@@ -70,7 +71,10 @@ public class NurseOperation {
         ArrayList<Nurse> list = new ArrayList<Nurse>();
         okHttpTools okhttpT = new okHttpTools();
         String URL = "http://139.199.226.190:8888/NurseApp/searchnurse";
-        okhttpT.postTools(URL, "");
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("name", name);
+        String json = jsonObject.toString();
+        okhttpT.postTools(URL, json);
         String data = (String) okhttpT.getResponse().get(1);
         JSONObject object = new JSONObject(data);
         JSONArray jsonArray = object.getJSONArray("data");
@@ -115,7 +119,10 @@ public class NurseOperation {
         ArrayList<Nurse> tempNurseList = new ArrayList<Nurse>();
         okHttpTools okhttpT = new okHttpTools();
         String URL = "http://139.199.226.190:8888/NurseApp/getnursebyid";
-        okhttpT.postTools(URL, "");
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("area", area);
+        String json = jsonObject.toString();
+        okhttpT.postTools(URL, json);
         String data = (String) okhttpT.getResponse().get(1);
         JSONObject object = new JSONObject(data);
         JSONArray jsonArray = object.getJSONArray("data");
@@ -149,6 +156,25 @@ public class NurseOperation {
         AdminOperation.areaNurseList = tempNurseList;
 
         return okhttpT.getResponse();
+    }
+
+
+    /**
+     * 添加护工
+     * 输入 无
+     * 输出 状态码和返回信息
+     */
+    public static ArrayList addNurse(Nurse nurse) throws JSONException, ExecutionException, InterruptedException {
+
+        okHttpTools okht = new okHttpTools();
+        String URL = "http://139.199.226.190:8888/NurseApp/addnurse";
+        Gson gson = new Gson();
+        String json = gson.toJson(nurse);
+        okht.postTools(URL, json);
+
+        ArrayList responseList = okht.getResponse();
+
+        return okht.getResponse();
     }
 
 }

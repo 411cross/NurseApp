@@ -44,7 +44,7 @@ public class OldOrderActivity extends AppCompatActivity {
         try {
             ArrayList list = OrderOperation.getOrder("old");
             if (Integer.parseInt((String) list.get(0)) == 200) {
-                JSONObject object = new JSONObject((String) list.get(1));
+                final JSONObject object = new JSONObject((String) list.get(1));
                 String message = object.getString("data");
                 System.out.println(message);
                 JSONArray jsonArray = new JSONArray(message);
@@ -59,7 +59,7 @@ public class OldOrderActivity extends AppCompatActivity {
                 }
                 if (orderList.size() != 0) {
                     noOrderTv.setVisibility(View.INVISIBLE);
-                    orderListView = (ListView) findViewById(R.id.new_order_list);
+                    orderListView = (ListView) findViewById(R.id.old_order_list);
                     orderAdapter = new OrderAdapter(OldOrderActivity.this, R.layout.layout_order_item, orderList);
                     orderListView.setAdapter(orderAdapter);
                     orderListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -69,12 +69,26 @@ public class OldOrderActivity extends AppCompatActivity {
                             Bundle bundle = new Bundle();
                             bundle.putInt("parentActivity", 0);
                             bundle.putInt("position", i);
-                            bundle.putString("orderID", order.getId()+"");
+                            bundle.putInt("orderID", order.getId());
                             bundle.putString("price", order.getTotalPrice());
                             bundle.putString("time", order.getCreateTime());
                             bundle.putInt("type", order.getType());
                             bundle.putInt("situation", order.getSituation());
                             bundle.putInt("choseNurse", order.getChoseNurse());
+
+                            bundle.putString("patient", order.getPatient().getName());
+                            bundle.putString("bed_number", order.getPatient().getBedNumber());
+                            bundle.putString("contact", order.getUser().getName());
+                            bundle.putString("phone", order.getUser().getId());
+                            bundle.putString("service_time", order.getServiceTime());
+
+                            bundle.putString("nurse_name", order.getNurse().getNurseName());
+                            bundle.putInt("evaluation", order.getNurse().getNurseEvaluate());
+                            bundle.putInt("height", order.getNurse().getNurseHeigt());
+                            bundle.putInt("weight", order.getNurse().getNurseWeight());
+                            bundle.putString("blood_type", order.getNurse().getNurseBloodType());
+
+
                             Intent intent = new Intent(OldOrderActivity.this, OrderDetailActivity.class);
                             intent.putExtras(bundle);
                             startActivityForResult(intent, 1);
