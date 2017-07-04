@@ -170,6 +170,8 @@ public class NurseOperation {
 
         okHttpTools okht = new okHttpTools();
         String URL = "http://139.199.226.190:8888/NurseApp/addnurse";
+//        String URL = "http://10.0.2.2:8080/addnurse";
+
         Gson gson = new Gson();
         String json = gson.toJson(nurse);
         Log.i("=========", json);

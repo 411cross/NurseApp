@@ -14,7 +14,7 @@ public class Nurse {
     private int nurseEvaluate; //评分
     private int nursePrice; //个人价格
     private ArrayList<Integer> nurseProtectArea; //护理范围
-    private int nurseHeigt; //身高
+    private int nurseHeight; //身高
     private int nurseWeight; //体重
     private String nurseBloodType; //血型
     private String nurseNation;  //民族
@@ -143,11 +143,11 @@ public class Nurse {
     }
 
     public int getNurseHeigt() {
-        return nurseHeigt;
+        return nurseHeight;
     }
 
     public void setNurseHeigt(int nurseHeigt) {
-        this.nurseHeigt = nurseHeigt;
+        this.nurseHeight = nurseHeigt;
     }
 
     public int getNurseWeight() {

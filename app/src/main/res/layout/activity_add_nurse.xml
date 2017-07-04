@@ -163,13 +163,13 @@
                 <TextView
                     android:layout_width="50dp"
                     android:layout_height="40dp"
-                    android:id="@+id/textView_heigt"
+                    android:id="@+id/textView_height"
                     android:text="身高:"
                     android:gravity="center"/>
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/editText_heigt"
+                    android:id="@+id/editText_height"
                     android:layout_toRightOf="@+id/textView_heigt"/>
             </RelativeLayout>
             <RelativeLayout

@@ -42,7 +42,7 @@ public class AddNurseActivity extends AppCompatActivity{
     private EditText editText_area;
     private EditText editText_price;
     private EditText editText_protectArea;
-    private EditText editText_heigt;
+    private EditText editText_height;
     private EditText editText_weight;
     private EditText editText_bloodType;
     private EditText editText_nation;
@@ -65,7 +65,7 @@ public class AddNurseActivity extends AppCompatActivity{
         editText_experience = (EditText)findViewById(R.id.editText_experience);
         editText_area = (EditText)findViewById(R.id.editText_area);
         editText_protectArea = (EditText)findViewById(R.id.editText_protectArea);
-        editText_heigt = (EditText)findViewById(R.id.editText_heigt);
+        editText_height = (EditText)findViewById(R.id.editText_height);
         editText_weight = (EditText)findViewById(R.id.editText_weight);
         editText_bloodType = (EditText)findViewById(R.id.editText_bloodType);
         editText_nation = (EditText)findViewById(R.id.editText_nation);
@@ -78,7 +78,6 @@ public class AddNurseActivity extends AppCompatActivity{
 
         save_button = (Button)findViewById(R.id.button_save);
 
-
         save_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,9 +89,10 @@ public class AddNurseActivity extends AppCompatActivity{
                 nurseProtectArea.add(2);
                 Nurse newNurse = new Nurse(editText_name.getText().toString(), Integer.valueOf(editText_id.getText().toString()), sex_int, Integer.valueOf(editText_age.getText().toString()),
                         Integer.valueOf(editText_experience.getText().toString()), editText_area.getText().toString(), 0,
-                        Integer.valueOf(editText_price.getText().toString()), nurseProtectArea, Integer.valueOf(editText_heigt.getText().toString()), Integer.valueOf(editText_weight.getText().toString()), editText_bloodType.getText().toString(),
+                        Integer.valueOf(editText_price.getText().toString()), nurseProtectArea, Integer.valueOf(editText_height.getText().toString()), Integer.valueOf(editText_weight.getText().toString()), editText_bloodType.getText().toString(),
                         editText_nation.getText().toString(), editText_identity.getText().toString(), editText_constellation.getText().toString(), editText_animal.getText().toString(),
                         editText_description.getText().toString(), editText_phone.getText().toString());
+                System.out.println(newNurse.getNurseId());
                 try {
                     NurseOperation.addNurse(newNurse);
                 } catch (JSONException e) {

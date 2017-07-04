@@ -25,8 +25,8 @@ public class okHttpTools {
 //        Thread Thread1 = new Thread(F1);
 //        Thread1.start();
         this.response = F1.get();
-        Log.i("CODE", (String) response.get(0));
-        Log.i("content", "" + response.get(1));
+//        Log.i("CODE", (String) response.get(0));
+//        Log.i("content", "" + response.get(1));
         execute.shutdown();
 
     }
