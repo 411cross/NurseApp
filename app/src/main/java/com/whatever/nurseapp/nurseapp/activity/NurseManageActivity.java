@@ -27,7 +27,7 @@ import java.util.ArrayList;
 
 public class NurseManageActivity extends AppCompatActivity {
     private ArrayList<Nurse> nurseList = new ArrayList<>();
-    private Button add_nurse_btn;
+
     private Button search_btn;
     private ListView listView1;
     private TestData_nurse t;
@@ -38,7 +38,6 @@ public class NurseManageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nurse_manage);
 
-        add_nurse_btn = (Button)findViewById(R.id.add_nurse_btn);
         search_btn = (Button)findViewById(R.id.button_search);
 
 
@@ -48,48 +47,6 @@ public class NurseManageActivity extends AppCompatActivity {
         listView1 = (ListView) findViewById(R.id.nurseList);
         listView1.setAdapter(nurseAdapter);
 
-        add_nurse_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LayoutInflater layoutInflater = LayoutInflater.from(NurseManageActivity.this);
-                final View myLoginView = layoutInflater.inflate(R.layout.add_nurse_detail, null);
-                AlertDialog alertDialog = new AlertDialog.Builder(NurseManageActivity.this).
-                        setTitle("添加护工").setView(myLoginView).
-                        setPositiveButton("提交", new DialogInterface.OnClickListener() {
-
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                String sex;
-                                EditText ed_name = (EditText) myLoginView.findViewById(R.id.editText_name);
-                                //护工姓名
-                                EditText ed_age = (EditText)myLoginView.findViewById(R.id.editText_age);
-                                //护工年龄
-                                EditText ed_tel = (EditText)myLoginView.findViewById(R.id.editText_tel);
-                                //护工电话
-                                EditText ed_area =(EditText)myLoginView.findViewById(R.id.editText_area);
-                                //护工地址
-                                EditText ed_pricce =(EditText)myLoginView.findViewById(R.id.editText_price);
-                                //护工收费
-                                RadioButton male_btn = (RadioButton)myLoginView.findViewById(R.id.sex_male);
-                                RadioButton female_btn = (RadioButton)myLoginView.findViewById(R.id.sex_female);
-                                if (male_btn.isChecked())
-                                    sex = male_btn.getText().toString();
-                                else
-                                    sex = female_btn.getText().toString();
-
-                                Toast.makeText(NurseManageActivity.this, sex, Toast.LENGTH_SHORT).show();
-
-                            }
-                        }).setNegativeButton("取消", new DialogInterface.OnClickListener() {
-
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                    }
-                }).
-                        create();
-                alertDialog.show();
-            }
-        });
         search_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -107,9 +64,9 @@ public class NurseManageActivity extends AppCompatActivity {
                                         Toast.LENGTH_SHORT).show();
                                 ArrayList<Nurse> TestList = new ArrayList<>();
                                 //修改绑定数据源
-                                ArrayList<Integer> s3 = new ArrayList<Integer>();
+                                ArrayList<Integer> s3 = new ArrayList<>();
                                 s3.add(3);
-                                ArrayList<Integer> s4 = new ArrayList<Integer>();
+                                ArrayList<Integer> s4 = new ArrayList<>();
                                 s4.add(3);
                                 s4.add(4);
                                 TestList.add(new Nurse("牛大逼",123456,0,20,10, "广东", 90, 150, s3, 150, 100, "A", "汉族", "123identify", "双鱼座", "鼠", "fit", "7569"));

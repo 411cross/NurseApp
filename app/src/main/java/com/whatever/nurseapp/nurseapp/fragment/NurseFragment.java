@@ -9,8 +9,11 @@ import android.widget.ImageView;
 
 
 import com.whatever.nurseapp.nurseapp.R;
+import com.whatever.nurseapp.nurseapp.activity.AddNurseActivity;
 import com.whatever.nurseapp.nurseapp.activity.NewOrderActivity;
+import com.whatever.nurseapp.nurseapp.activity.NurseManageActivity;
 import com.whatever.nurseapp.nurseapp.activity.OldOrderActivity;
+import com.whatever.nurseapp.nurseapp.entity.Nurse;
 
 
 /**
@@ -22,10 +25,10 @@ public class NurseFragment extends android.support.v4.app.Fragment{
     public static final String ARG_PAGE = "ARG_PAGE";
     private int mPage;
 
-    public static OrderFragment newInstance(int page) {
+    public static NurseFragment newInstance(int page) {
         Bundle args = new Bundle();
         args.putInt(ARG_PAGE, page);
-        OrderFragment classFragment = new OrderFragment();
+        NurseFragment classFragment = new NurseFragment();
         classFragment.setArguments(args);
         return classFragment;
     }
@@ -39,21 +42,22 @@ public class NurseFragment extends android.support.v4.app.Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.layout_nurse_fragment, container, false);
-        ImageView newOrderBtn = (ImageView) view.findViewById(R.id.nurse_list_btn);
-        ImageView oldOrderBtn = (ImageView) view.findViewById(R.id.add_nurse_btn);
+        ImageView nurseListBtn = (ImageView) view.findViewById(R.id.nurse_list_btn);
+        ImageView addNurseBtn = (ImageView) view.findViewById(R.id.add_nurse_btn);
 
-        newOrderBtn.setOnClickListener(new View.OnClickListener() {
+        nurseListBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), NewOrderActivity.class);
+                Intent intent = new Intent(getContext(), NurseManageActivity.class);
                 startActivity(intent);
             }
         });
 
-        oldOrderBtn.setOnClickListener(new View.OnClickListener() {
+        addNurseBtn
+                .setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), OldOrderActivity.class);
+                Intent intent = new Intent(getContext(), AddNurseActivity.class);
                 startActivity(intent);
             }
         });

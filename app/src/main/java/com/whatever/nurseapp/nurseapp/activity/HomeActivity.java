@@ -47,8 +47,7 @@ public class HomeActivity extends AppCompatActivity {
     private Toolbar mToolbar;
     private DrawerLayout mDrawerLayout;
 
-    private String[] titles = {"我的地址", "我的订单", "我的信息", "退出"};
-    private String[] tabTitles ={"商铺", "分类"};
+    private String[] tabTitles ={"订单", "护工"};
     private ListView drawList;
     private RelativeLayout drawerList;
 

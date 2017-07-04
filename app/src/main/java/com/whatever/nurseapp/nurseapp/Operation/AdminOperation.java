@@ -17,10 +17,10 @@ import java.util.concurrent.ExecutionException;
 
 public class AdminOperation {
 
-    public static ArrayList<String> nurseNameList = null;
-    public static ArrayList<Nurse> nurseListAll = null;
-    public static ArrayList<Nurse> areaNurseList = null;
-    public static ArrayList<Order> orderList = null;
+    public static ArrayList<String> nurseNameList = new ArrayList<>();
+    public static ArrayList<Nurse> nurseListAll = new ArrayList<>();
+    public static ArrayList<Nurse> areaNurseList = new ArrayList<>();
+    public static ArrayList<Order> orderList = new ArrayList<>();
 
     /**
      * 用户登录
@@ -28,10 +28,10 @@ public class AdminOperation {
      * 输出 状态码和返回信息
      */
 
-    public static ArrayList AdminLogin(String id, String pass) throws JSONException, ExecutionException, InterruptedException {
+    public static ArrayList adminLogin(int id, String pass) throws JSONException, ExecutionException, InterruptedException {
 
         okHttpTools okht = new okHttpTools();
-        String URL = "http://139.199.226.190:8080/api/v1/getInfo";
+        String URL = "http://139.199.226.190:8888/NurseApp/adminlogin";
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("id", id);
         jsonObject.put("password", pass);
@@ -46,6 +46,7 @@ public class AdminOperation {
             JSONArray jsonArray = object.getJSONArray("data");
             for (int i = 0; i < jsonArray.length(); i++) {
                 String name = (String) jsonArray.get(i);
+                System.out.println(name);
                 nurseNameList.add(name);
             }
         }

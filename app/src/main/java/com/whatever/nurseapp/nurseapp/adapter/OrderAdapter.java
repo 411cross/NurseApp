@@ -44,7 +44,6 @@ public class OrderAdapter extends ArrayAdapter<Order>{
         priceTv.setText(order.getTotalPrice());
         timeTv.setText(order.getCreateTime());
 
-        Log.i("ttttttttttttt", "getView: ");
         //判断护理类型，选择相应的图标展示
         int type = order.getType();
         int image_id;

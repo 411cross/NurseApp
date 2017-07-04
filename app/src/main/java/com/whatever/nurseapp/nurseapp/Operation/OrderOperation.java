@@ -27,7 +27,7 @@ public class OrderOperation {
         JSONObject jObject = new JSONObject();
         jObject.put("situation", situation);
         String Json = jObject.toString();
-        String URL = "http://139.199.226.190:8080/api/v1/register";
+        String URL = "http://139.199.226.190:8888/NurseApp/admingetorder";
         okhttpT.postTools(URL, Json);
         String data = (String) okhttpT.getResponse().get(1);
         Gson gson = new Gson();
@@ -49,13 +49,13 @@ public class OrderOperation {
      * 输入  状态
      * 输出 状态码和返回信息
      */
-    public static ArrayList changeSituation(int id, String situation) throws JSONException, ExecutionException, InterruptedException {
+    public static ArrayList changeSituation(int id, int situation) throws JSONException, ExecutionException, InterruptedException {
         okHttpTools okhttpT = new okHttpTools();
         JSONObject jObject = new JSONObject();
         jObject.put("id", id);
         jObject.put("situation", situation);
         String Json = jObject.toString();
-        String URL = "http://139.199.226.190:8080/api/v1/register";
+        String URL = "http://139.199.226.190:8888/NurseApp/changeordersituation";
         okhttpT.postTools(URL, Json);
         return okhttpT.getResponse();
 
