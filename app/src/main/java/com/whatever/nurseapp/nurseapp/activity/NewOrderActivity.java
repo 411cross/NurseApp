@@ -74,6 +74,19 @@ public class NewOrderActivity extends AppCompatActivity {
                             bundle.putInt("type", order.getType());
                             bundle.putInt("situation", order.getSituation());
                             bundle.putInt("choseNurse", order.getChoseNurse());
+
+                            bundle.putString("patient", order.getPatient().getName());
+                            bundle.putString("bed_number", order.getPatient().getBedNumber());
+                            bundle.putString("contact", order.getUser().getName());
+                            bundle.putString("phone", order.getUser().getId());
+                            bundle.putString("service_time", order.getServiceTime());
+
+                            bundle.putString("nurse_name", order.getNurse().getNurseName());
+                            bundle.putInt("evaluation", order.getNurse().getNurseEvaluate());
+                            bundle.putInt("height", order.getNurse().getNurseHeigt());
+                            bundle.putInt("weight", order.getNurse().getNurseWeight());
+                            bundle.putString("blood_type", order.getNurse().getNurseBloodType());
+
                             Intent intent = new Intent(NewOrderActivity.this, OrderDetailActivity.class);
                             intent.putExtras(bundle);
                             startActivityForResult(intent, 1);

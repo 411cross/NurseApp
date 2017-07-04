@@ -40,7 +40,8 @@ public class OrderAdapter extends ArrayAdapter<Order>{
         TextView choseNurseTv = (TextView) view.findViewById(R.id.chose_nurse);
         ImageView icon = (ImageView) view.findViewById(R.id.icon);
 
-        orderIDTv.setText(order.getId());
+
+        orderIDTv.setText(String.valueOf(order.getId()));
         priceTv.setText(order.getTotalPrice());
         timeTv.setText(order.getCreateTime());
 

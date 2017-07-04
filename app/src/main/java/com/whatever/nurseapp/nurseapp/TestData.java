@@ -18,17 +18,17 @@ public class TestData {
     private User user = new User();
     private Patient patient = new Patient();
 
-    private Order order = new Order("2013639179179", "250", "2017.06.17", "2017.06.17", 1, 1, 1, nurse, patient, user);
+    private Order order = new Order(12345, "250", "2017.06.17", "2017.06.17", 1, 1, 1, nurse, patient, user);
 
-    private Order order_1 = new Order("2013639179179", "250", "2017.06.17", "2017.06.17", 1, 1, 1, nurse, patient, user);
-    private Order order_2 = new Order("2013639179179", "250", "2017.06.17", "2017.06.17", 1, 1, 1, nurse, patient, user);
-    private Order order_3 = new Order("2013639179179", "250", "2017.06.17", "2017.06.17", 1, 1, 1, nurse, patient, user);
-    private Order order_4 = new Order("2013639179179", "250", "2017.06.17", "2017.06.17", 1, 1, 1, nurse, patient, user);
-    private Order order_5 = new Order("2013639179179", "250", "2017.06.17", "2017.06.17", 1, 1, 1, nurse, patient, user);
-    private Order order_6 = new Order("2013639179179", "250", "2017.06.17", "2017.06.17", 1, 0, 1, nurse, patient, user);
-    private Order order_7 = new Order("2013639179179", "250", "2017.06.17", "2017.06.17", 1, 0, 1, nurse, patient, user);
-    private Order order_8 = new Order("2013639179179", "250", "2017.06.17", "2017.06.17", 1, 0, 1, nurse, patient, user);
-    private Order order_9 = new Order("2013639179179", "250", "2017.06.17", "2017.06.17", 1, 0, 1, nurse, patient, user);
+    private Order order_1 = new Order(12345, "250", "2017.06.17", "2017.06.17", 1, 1, 1, nurse, patient, user);
+    private Order order_2 = new Order(12345, "250", "2017.06.17", "2017.06.17", 1, 1, 1, nurse, patient, user);
+    private Order order_3 = new Order(12345, "250", "2017.06.17", "2017.06.17", 1, 1, 1, nurse, patient, user);
+    private Order order_4 = new Order(12345, "250", "2017.06.17", "2017.06.17", 1, 1, 1, nurse, patient, user);
+    private Order order_5 = new Order(12345, "250", "2017.06.17", "2017.06.17", 1, 1, 1, nurse, patient, user);
+    private Order order_6 = new Order(12345, "250", "2017.06.17", "2017.06.17", 1, 0, 1, nurse, patient, user);
+    private Order order_7 = new Order(12345, "250", "2017.06.17", "2017.06.17", 1, 0, 1, nurse, patient, user);
+    private Order order_8 = new Order(12345, "250", "2017.06.17", "2017.06.17", 1, 0, 1, nurse, patient, user);
+    private Order order_9 = new Order(12345, "250", "2017.06.17", "2017.06.17", 1, 0, 1, nurse, patient, user);
 //    private Order order_10 = new Order("20170627100010", "1000.00", "2017.06.17", 3, 1, 1);
 //    private Order order_11 = new Order("20170627100011", "300.00", "2017.06.17", 1, 2, 1);
 //    private Order order_12 = new Order("20170627100012", "250.00", "2017.06.17", 2, 1, 1);
