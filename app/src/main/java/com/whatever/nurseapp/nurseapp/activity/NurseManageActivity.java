@@ -30,6 +30,8 @@ public class NurseManageActivity extends AppCompatActivity {
     private Button add_nurse_btn;
     private Button search_btn;
     private ListView listView1;
+    private TestData_nurse t;
+    private NurseAdapter nurseAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +42,9 @@ public class NurseManageActivity extends AppCompatActivity {
         search_btn = (Button)findViewById(R.id.button_search);
 
 
-        TestData_nurse  t = new TestData_nurse();
+        t = new TestData_nurse();
         nurseList = t.getA();
-        NurseAdapter nurseAdapter = new NurseAdapter(NurseManageActivity.this, R.layout.nurse_detail,nurseList);
+        nurseAdapter = new NurseAdapter(NurseManageActivity.this, R.layout.nurse_detail,nurseList);
         listView1 = (ListView) findViewById(R.id.nurseList);
         listView1.setAdapter(nurseAdapter);
 
@@ -246,6 +248,13 @@ public class NurseManageActivity extends AppCompatActivity {
                     }
                 }
 
+            }
+            if(resultCode == 0) {
+            Bundle bundle = data.getExtras();
+            int id = Integer.valueOf(bundle.getString("id")) ;
+            t.delete_Nurse(id);
+            nurseAdapter = new NurseAdapter(NurseManageActivity.this, R.layout.nurse_detail,t.getA());
+            listView1.setAdapter(nurseAdapter);
             }
         }
 }

@@ -1,5 +1,7 @@
 package com.whatever.nurseapp.nurseapp.entity;
 
+import android.os.Parcelable;
+
 public class Nurse {
     private String nurseName; //姓名
     private int nurseId; //id

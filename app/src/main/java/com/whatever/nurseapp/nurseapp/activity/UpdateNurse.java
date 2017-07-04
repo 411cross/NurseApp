@@ -147,6 +147,10 @@ public class UpdateNurse extends AppCompatActivity {
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
+                                Intent intent = new Intent();
+                                intent.putExtra("id",id.getText().toString());
+                                setResult(0,intent);
+                                finish();
                             }
                         });
                 builder.setNegativeButton("取消",
