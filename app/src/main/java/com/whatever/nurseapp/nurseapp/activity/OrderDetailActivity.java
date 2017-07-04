@@ -171,11 +171,9 @@ public class OrderDetailActivity extends AppCompatActivity {
 //                                TestFather.getTestData().getOrderAccepted().add(orderID);
 //                                TestFather.getTestData().getNewOrderList().get(position).setSituation(4);
                                 try {
-                                    ArrayList list = OrderOperation.changeSituation(orderID, situation);
+                                    ArrayList list = OrderOperation.changeSituation(orderID, 4);
                                     if (Integer.parseInt((String) list.get(0)) == 200) {
                                         Toast.makeText(OrderDetailActivity.this, "修改成功", Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(OrderDetailActivity.this, HomeActivity.class);
-                                        startActivity(intent);
                                     } else {
                                         JSONObject object = new JSONObject((String) list.get(1));
                                         String message = object.getString("data");
@@ -231,10 +229,26 @@ public class OrderDetailActivity extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 // TODO Auto-generated method stub
-                                TestFather.getTestData().getOrderAccepted().add(orderID);
-                                TestFather.getTestData().getNewOrderList().get(position).setSituation(2);
-                                TestFather.getTestData().getOldOrderList().add(TestFather.getTestData().getNewOrderList().get(position));
-                                TestFather.getTestData().getNewOrderList().remove(position);
+//                                TestFather.getTestData().getOrderAccepted().add(orderID);
+//                                TestFather.getTestData().getNewOrderList().get(position).setSituation(2);
+//                                TestFather.getTestData().getOldOrderList().add(TestFather.getTestData().getNewOrderList().get(position));
+//                                TestFather.getTestData().getNewOrderList().remove(position);
+                                try {
+                                    ArrayList list = OrderOperation.changeSituation(orderID, 2);
+                                    if (Integer.parseInt((String) list.get(0)) == 200) {
+                                        Toast.makeText(OrderDetailActivity.this, "修改成功", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        JSONObject object = new JSONObject((String) list.get(1));
+                                        String message = object.getString("data");
+                                        Toast.makeText(OrderDetailActivity.this, message, Toast.LENGTH_SHORT).show();
+                                    }
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                } catch (ExecutionException e) {
+                                    e.printStackTrace();
+                                }
                                 situationTv.setText("已取消");
                                 acceptBtn.setVisibility(View.INVISIBLE);
                                 rejectBtn.setVisibility(View.INVISIBLE);
@@ -276,8 +290,24 @@ public class OrderDetailActivity extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 // TODO Auto-generated method stub
-                                TestFather.getTestData().getOrderAccepted().add(orderID);
-                                TestFather.getTestData().getNewOrderList().get(position).setSituation(5);
+//                                TestFather.getTestData().getOrderAccepted().add(orderID);
+//                                TestFather.getTestData().getNewOrderList().get(position).setSituation(5);
+                                try {
+                                    ArrayList list = OrderOperation.changeSituation(orderID, 5);
+                                    if (Integer.parseInt((String) list.get(0)) == 200) {
+                                        Toast.makeText(OrderDetailActivity.this, "修改成功", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        JSONObject object = new JSONObject((String) list.get(1));
+                                        String message = object.getString("data");
+                                        Toast.makeText(OrderDetailActivity.this, message, Toast.LENGTH_SHORT).show();
+                                    }
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                } catch (ExecutionException e) {
+                                    e.printStackTrace();
+                                }
 
                                 situationTv.setText("已提醒付款");
                                 notifyBtn.setText("再次提醒");
@@ -315,10 +345,26 @@ public class OrderDetailActivity extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 // TODO Auto-generated method stub
-                                TestFather.getTestData().getOrderAccepted().add(orderID);
-                                TestFather.getTestData().getNewOrderList().get(position).setSituation(3);
-                                TestFather.getTestData().getOldOrderList().add(TestFather.getTestData().getNewOrderList().get(position));
-                                TestFather.getTestData().getNewOrderList().remove(position);
+//                                TestFather.getTestData().getOrderAccepted().add(orderID);
+//                                TestFather.getTestData().getNewOrderList().get(position).setSituation(3);
+//                                TestFather.getTestData().getOldOrderList().add(TestFather.getTestData().getNewOrderList().get(position));
+//                                TestFather.getTestData().getNewOrderList().remove(position);
+                                try {
+                                    ArrayList list = OrderOperation.changeSituation(orderID, 3);
+                                    if (Integer.parseInt((String) list.get(0)) == 200) {
+                                        Toast.makeText(OrderDetailActivity.this, "修改成功", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        JSONObject object = new JSONObject((String) list.get(1));
+                                        String message = object.getString("data");
+                                        Toast.makeText(OrderDetailActivity.this, message, Toast.LENGTH_SHORT).show();
+                                    }
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                } catch (ExecutionException e) {
+                                    e.printStackTrace();
+                                }
                                 situationTv.setText("已完成");
                                 finishBtn.setVisibility(View.INVISIBLE);
                                 Bundle bundle = new Bundle();
