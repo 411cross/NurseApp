@@ -44,7 +44,7 @@ public class OldOrderActivity extends AppCompatActivity {
         try {
             ArrayList list = OrderOperation.getOrder("old");
             if (Integer.parseInt((String) list.get(0)) == 200) {
-                final JSONObject object = new JSONObject((String) list.get(1));
+                JSONObject object = new JSONObject((String) list.get(1));
                 String message = object.getString("data");
                 System.out.println(message);
                 JSONArray jsonArray = new JSONArray(message);

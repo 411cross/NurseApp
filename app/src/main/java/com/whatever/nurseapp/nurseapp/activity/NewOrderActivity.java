@@ -54,6 +54,7 @@ public class NewOrderActivity extends AppCompatActivity {
                     jsonObject = (JSONObject) jsonArray.get(i);
                     jsonString = jsonObject.toString();
                     tempOrder = gson.fromJson(jsonString, Order.class);
+                    System.out.println(tempOrder.getId());
                     orderList.add(tempOrder);
                 }
                 if (orderList.size() != 0) {
