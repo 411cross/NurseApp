@@ -38,8 +38,7 @@ public class OrderDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_order_detail);
 
         Bundle bundle = this.getIntent().getExtras();
-        Order od = (Order)getIntent().getSerializableExtra("order");
-        System.out.println(od.getId());
+//        Order od = (Order)getIntent().getSerializableExtra("order");
         int parentActivity = bundle.getInt("parentActivity");
         position = bundle.getInt("position");
         final int orderID = bundle.getInt("orderID");
@@ -145,10 +144,10 @@ public class OrderDetailActivity extends AppCompatActivity {
 
         if (situation == 0 || situation == 5) {
             notifyBtn.setVisibility(View.VISIBLE);
-            if (notified == 0) {
-                notifyBtn.setText("提醒");
-            } else {
+            if (situation == 5) {
                 notifyBtn.setText("再次提醒");
+            } else {
+                notifyBtn.setText("提醒");
             }
         } else {
             notifyBtn.setVisibility(View.INVISIBLE);
