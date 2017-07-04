@@ -4,30 +4,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginLeft="28dp"
+    android:layout_marginRight="28dp"
+    android:gravity="clip_vertical"
     tools:context="com.whatever.nurseapp.nurseapp.activity.MainActivity">
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/admin_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:layout_marginTop="40dp"
         android:ems="10"
-        android:inputType="textPassword"
-        android:hint="编号"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:hint="账号"
+         />
 
-    <Button
-        android:id="@+id/button"
+    <EditText
+        android:id="@+id/admin_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/editText"
-        android:text="登录"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentStart="true"
+        android:ems="10"
+        android:hint="密码"
+        android:layout_below="@+id/admin_id"
+        android:layout_marginTop="20dp"
+        android:inputType="textPassword"/>
+
+    <Button
+        android:id="@+id/login_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/admin_password"
+        android:layout_marginTop="20dp"
+        android:text="登录" />
 
 </RelativeLayout>

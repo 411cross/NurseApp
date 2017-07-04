@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 public class Order implements Serializable{
 
-    private String id;
+    private int id;
     private String totalPrice;
     private String createTime;
     private String serviceTime;
@@ -44,9 +44,11 @@ public class Order implements Serializable{
         this.user = user;
     }
 
+    public Order() {
 
+    }
 
-    public Order(String id, String totalPrice, String createTime, String serviceTime, int type, int situation, int choseNurse, Nurse nurse, Patient patient, User user) {
+    public Order(int id, String totalPrice, String createTime, String serviceTime, int type, int situation, int choseNurse, Nurse nurse, Patient patient, User user) {
         this.id = id;
         this.totalPrice = totalPrice;
         this.createTime = createTime;
@@ -59,11 +61,11 @@ public class Order implements Serializable{
         this.user = user;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

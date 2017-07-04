@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.whatever.nurseapp.nurseapp">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -18,7 +20,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.HomeActivity" />
-        <activity android:name=".activity.UpdateNurse"/>
+        <activity android:name=".activity.UpdateNurse" />
         <activity android:name=".activity.NurseManageActivity" />
         <activity
             android:name=".activity.NewOrderActivity"
@@ -29,7 +31,9 @@
         <activity
             android:name=".activity.OrderDetailActivity"
             android:label="订单详情" />
-        <activity android:name=".activity.ChooseNurseActivity"></activity>
+        <activity android:name=".activity.ChooseNurseActivity" />
+        <activity android:name=".activity.MoreDetailActivity"></activity>
+        <activity android:name=".activity.AddNurseActivity"></activity>
     </application>
 
 </manifest>

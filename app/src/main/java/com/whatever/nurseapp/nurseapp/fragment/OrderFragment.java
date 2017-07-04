@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.whatever.nurseapp.nurseapp.R;
+import com.whatever.nurseapp.nurseapp.activity.MoreDetailActivity;
 import com.whatever.nurseapp.nurseapp.activity.NewOrderActivity;
 import com.whatever.nurseapp.nurseapp.activity.OldOrderActivity;
 
@@ -44,6 +45,7 @@ public class OrderFragment extends android.support.v4.app.Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), NewOrderActivity.class);
+                System.out.println("CAOCAOCAO");
                 startActivity(intent);
             }
         });

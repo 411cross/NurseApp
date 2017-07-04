@@ -27,7 +27,7 @@ import java.util.ArrayList;
 
 public class NurseManageActivity extends AppCompatActivity {
     private ArrayList<Nurse> nurseList = new ArrayList<>();
-    private Button add_nurse_btn;
+
     private Button search_btn;
     private ListView listView1;
 
@@ -36,7 +36,6 @@ public class NurseManageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nurse_manage);
 
-        add_nurse_btn = (Button)findViewById(R.id.add_nurse_btn);
         search_btn = (Button)findViewById(R.id.button_search);
 
 
@@ -46,48 +45,6 @@ public class NurseManageActivity extends AppCompatActivity {
         listView1 = (ListView) findViewById(R.id.nurseList);
         listView1.setAdapter(nurseAdapter);
 
-        add_nurse_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LayoutInflater layoutInflater = LayoutInflater.from(NurseManageActivity.this);
-                final View myLoginView = layoutInflater.inflate(R.layout.add_nurse_detail, null);
-                AlertDialog alertDialog = new AlertDialog.Builder(NurseManageActivity.this).
-                        setTitle("添加护工").setView(myLoginView).
-                        setPositiveButton("提交", new DialogInterface.OnClickListener() {
-
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                String sex;
-                                EditText ed_name = (EditText) myLoginView.findViewById(R.id.editText_name);
-                                //护工姓名
-                                EditText ed_age = (EditText)myLoginView.findViewById(R.id.editText_age);
-                                //护工年龄
-                                EditText ed_tel = (EditText)myLoginView.findViewById(R.id.editText_tel);
-                                //护工电话
-                                EditText ed_area =(EditText)myLoginView.findViewById(R.id.editText_area);
-                                //护工地址
-                                EditText ed_pricce =(EditText)myLoginView.findViewById(R.id.editText_price);
-                                //护工收费
-                                RadioButton male_btn = (RadioButton)myLoginView.findViewById(R.id.sex_male);
-                                RadioButton female_btn = (RadioButton)myLoginView.findViewById(R.id.sex_female);
-                                if (male_btn.isChecked())
-                                    sex = male_btn.getText().toString();
-                                else
-                                    sex = female_btn.getText().toString();
-
-                                Toast.makeText(NurseManageActivity.this, sex, Toast.LENGTH_SHORT).show();
-
-                            }
-                        }).setNegativeButton("取消", new DialogInterface.OnClickListener() {
-
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                    }
-                }).
-                        create();
-                alertDialog.show();
-            }
-        });
         search_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -105,8 +62,11 @@ public class NurseManageActivity extends AppCompatActivity {
                                         Toast.LENGTH_SHORT).show();
                                 ArrayList<Nurse> TestList = new ArrayList<>();
                                 //修改绑定数据源
-                                int[] s3 = {3};
-                                int[] s4 = {3,4};
+                                ArrayList<Integer> s3 = new ArrayList<>();
+                                s3.add(3);
+                                ArrayList<Integer> s4 = new ArrayList<>();
+                                s4.add(3);
+                                s4.add(4);
                                 TestList.add(new Nurse("牛大逼",123456,0,20,10, "广东", 90, 150, s3, 150, 100, "A", "汉族", "123identify", "双鱼座", "鼠", "fit", "7569"));
                                 TestList.add(new Nurse("牛鬼蛇",987654321,1,25,5, "湖南", 80, 250, s4, 160, 120, "AB", "回族", "456identify", "处女座", "牛", "fitshai", "10010"));
                                 NurseAdapter TestAdapter = new NurseAdapter(NurseManageActivity.this, R.layout.nurse_detail,TestList);
@@ -142,7 +102,7 @@ public class NurseManageActivity extends AppCompatActivity {
                 bundle.putString("Nurse_Area", nurse.getNurseArea());
                 bundle.putInt("Nurse_evaluate", nurse.getNurseEvaluate());
                 bundle.putInt("Nurse_price", nurse.getNursePrice());
-                bundle.putIntArray("Nurse_filed",nurse.getNurseProtectArea());
+                bundle.putIntegerArrayList("Nurse_filed",nurse.getNurseProtectArea());
                 bundle.putInt("Nurse_height",nurse.getNurseHeigt());
                 bundle.putInt("Nurse_weight",nurse.getNurseWeight());
                 bundle.putString("BloodType",nurse.getNurseBloodType());
@@ -215,11 +175,11 @@ public class NurseManageActivity extends AppCompatActivity {
                     nurse_temp.setNurseConstellation(constellation);
                     nurse_temp.setNurseDescription(description);
                     String[] filed_array = filed.split(" ");
-                    int[] filed_intarray = new int[filed_array.length];
+                    ArrayList<Integer> filed_intarray = new ArrayList<>();
                     for(int i = 0;i<filed_array.length;i++){
                         for(int n = 0;n< Int_to_filed.filed_length();n++){
                             if(filed_array[i].equals(Int_to_filed.to_filed(n))) {
-                                filed_intarray[i] = n;
+                                filed_intarray.set(i, n);
                             }
                         }
                     }

@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class TestData {
 
-    int[] s1 = {1};
+    ArrayList<Integer> s1 = new ArrayList<>();
     private Nurse nurse = new Nurse("牛大",123456,0,20,10, "广东", 90, 150, s1, 150, 100, "A", "汉族", "123identify", "双鱼座", "鼠", "fit", "7569");
     private User user = new User();
     private Patient patient = new Patient();
@@ -40,6 +40,24 @@ public class TestData {
     private ArrayList<String> orderAccepted = new ArrayList<>();
 
     public TestData() {
+        this.getNewOrderList().add(order_1);
+        this.getNewOrderList().add(order_2);
+        this.getNewOrderList().add(order_3);
+        this.getOldOrderList().add(order_4);
+        this.getOldOrderList().add(order_5);
+        this.getOldOrderList().add(order_6);
+        this.getOldOrderList().add(order_7);
+        this.getNewOrderList().add(order_8);
+        this.getNewOrderList().add(order_9);
+        this.getNewOrderList().add(order_1);
+        this.getNewOrderList().add(order_2);
+        this.getNewOrderList().add(order_3);
+        this.getOldOrderList().add(order_4);
+        this.getOldOrderList().add(order_5);
+        this.getOldOrderList().add(order_6);
+        this.getOldOrderList().add(order_7);
+        this.getNewOrderList().add(order_8);
+        this.getNewOrderList().add(order_9);
         this.getNewOrderList().add(order_1);
         this.getNewOrderList().add(order_2);
         this.getNewOrderList().add(order_3);

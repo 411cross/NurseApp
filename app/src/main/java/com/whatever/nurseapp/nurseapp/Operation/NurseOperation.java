@@ -24,7 +24,7 @@ public class NurseOperation {
     public static ArrayList getNurseList() throws JSONException, ExecutionException, InterruptedException {
         ArrayList<Nurse> list = new ArrayList<Nurse>();
         okHttpTools okhttpT = new okHttpTools();
-        String URL = "http://139.199.226.190:8080/api/v1/register";
+        String URL = "http://139.199.226.190:8888/NurseApp/getnurselist";
         okhttpT.postTools(URL, "");
         String data = (String) okhttpT.getResponse().get(1);
         JSONObject object = new JSONObject(data);
@@ -69,7 +69,7 @@ public class NurseOperation {
     public static ArrayList getSpecificNurse(String name) throws JSONException, ExecutionException, InterruptedException {
         ArrayList<Nurse> list = new ArrayList<Nurse>();
         okHttpTools okhttpT = new okHttpTools();
-        String URL = "http://139.199.226.190:8080/api/v1/register";
+        String URL = "http://139.199.226.190:8888/NurseApp/searchnurse";
         okhttpT.postTools(URL, "");
         String data = (String) okhttpT.getResponse().get(1);
         JSONObject object = new JSONObject(data);
@@ -107,14 +107,14 @@ public class NurseOperation {
     }
 
     /**
-     * 获取特定护工
-     * 输入 无
+     * 获取护理范围护工
+     * 输入
      * 输出 状态码和返回信息
      */
     public static ArrayList getAeraNurse(int area) throws JSONException, ExecutionException, InterruptedException {
         ArrayList<Nurse> tempNurseList = new ArrayList<Nurse>();
         okHttpTools okhttpT = new okHttpTools();
-        String URL = "http://139.199.226.190:8080/api/v1/register";
+        String URL = "http://139.199.226.190:8888/NurseApp/getnursebyid";
         okhttpT.postTools(URL, "");
         String data = (String) okhttpT.getResponse().get(1);
         JSONObject object = new JSONObject(data);

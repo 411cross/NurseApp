@@ -11,8 +11,9 @@ import java.util.ArrayList;
 
 public class TestData_nurse {
     private ArrayList<Nurse>  a;
-    int[] s1 = {1};
-    int[] s2 = {1,2};
+    ArrayList<Integer> s1 = new ArrayList<>();
+    ArrayList<Integer> s2 = new ArrayList<>();
+
     Nurse n1 = new Nurse("牛大",123456,0,20,10, "广东", 90, 150, s1, 150, 100, "A", "汉族", "123identify", "双鱼座", "鼠", "fit", "7569");
     Nurse n2 = new Nurse("牛欢喜",98761,1,25,5, "湖南", 80, 250, s2, 160, 120, "AB", "回族", "456identify", "处女座", "牛", "fitshai", "10010");
 
