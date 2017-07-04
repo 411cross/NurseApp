@@ -16,12 +16,16 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.whatever.nurseapp.nurseapp.Int_to_filed;
+import com.whatever.nurseapp.nurseapp.Operation.NurseOperation;
 import com.whatever.nurseapp.nurseapp.R;
 import com.whatever.nurseapp.nurseapp.TestData_nurse;
 import com.whatever.nurseapp.nurseapp.adapter.NurseAdapter;
 import com.whatever.nurseapp.nurseapp.entity.Nurse;
 
+import org.json.JSONException;
+
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 /**
  * Created by derrickJ on 2017/7/4.
@@ -31,7 +35,8 @@ public class AddNurseActivity extends AppCompatActivity{
     private Button save_button;
     private EditText editText_name;
     private EditText editText_id;
-    private RadioGroup sex;
+    private RadioButton sex_male;
+    private RadioButton sex_female;
     private EditText editText_age;
     private EditText editText_experience;
     private EditText editText_area;
@@ -46,8 +51,7 @@ public class AddNurseActivity extends AppCompatActivity{
     private EditText editText_animal;
     private EditText editText_description;
     private EditText editText_phone;
-
-
+    private int sex_int = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +59,8 @@ public class AddNurseActivity extends AppCompatActivity{
         setContentView(R.layout.activity_add_nurse);
         editText_name = (EditText)findViewById(R.id.editText_name);
         editText_id = (EditText)findViewById(R.id.editText_id);
-        sex = (RadioGroup)findViewById(R.id.sex);
+        sex_male =(RadioButton)findViewById(R.id.male);
+        sex_female = (RadioButton)findViewById(R.id.female);
         editText_age = (EditText)findViewById(R.id.editText_age);
         editText_experience = (EditText)findViewById(R.id.editText_experience);
         editText_area = (EditText)findViewById(R.id.editText_area);
@@ -69,16 +74,36 @@ public class AddNurseActivity extends AppCompatActivity{
         editText_animal = (EditText)findViewById(R.id.editText_animal);
         editText_description = (EditText)findViewById(R.id.editText_description);
         editText_phone = (EditText)findViewById(R.id.editText_phone);
+        editText_price = (EditText)findViewById(R.id.editText_price);
 
         save_button = (Button)findViewById(R.id.button_save);
+
 
         save_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (sex_female.isChecked()) {
+                    sex_int = 1;
                 }
+                ArrayList<Integer> nurseProtectArea = new ArrayList<Integer>();
+                nurseProtectArea.add(1);
+                nurseProtectArea.add(2);
+                Nurse newNurse = new Nurse(editText_name.getText().toString(), Integer.valueOf(editText_id.getText().toString()), sex_int, Integer.valueOf(editText_age.getText().toString()),
+                        Integer.valueOf(editText_experience.getText().toString()), editText_area.getText().toString(), 0,
+                        Integer.valueOf(editText_price.getText().toString()), nurseProtectArea, Integer.valueOf(editText_heigt.getText().toString()), Integer.valueOf(editText_weight.getText().toString()), editText_bloodType.getText().toString(),
+                        editText_nation.getText().toString(), editText_identity.getText().toString(), editText_constellation.getText().toString(), editText_animal.getText().toString(),
+                        editText_description.getText().toString(), editText_phone.getText().toString());
+                try {
+                    NurseOperation.addNurse(newNurse);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
         });
 
     }
-
-
 }

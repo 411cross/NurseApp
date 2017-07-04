@@ -1,5 +1,7 @@
 package com.whatever.nurseapp.nurseapp.Operation;
 
+import android.util.Log;
+
 import com.google.gson.Gson;
 import com.whatever.nurseapp.nurseapp.Okhttp_tools.okHttpTools;
 import com.whatever.nurseapp.nurseapp.entity.Nurse;
@@ -170,6 +172,7 @@ public class NurseOperation {
         String URL = "http://139.199.226.190:8888/NurseApp/addnurse";
         Gson gson = new Gson();
         String json = gson.toJson(nurse);
+        Log.i("=========", json);
         okht.postTools(URL, json);
 
         ArrayList responseList = okht.getResponse();
