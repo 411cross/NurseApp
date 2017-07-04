@@ -13,8 +13,8 @@ import java.util.ArrayList;
 
 public class TestData {
 
-    int[] s1 = {1};
-    private Nurse nurse = new Nurse("牛大",123456,0,20,10, "广东", 90, 150, s1, 150, 100, "A", "汉族", "123identify", "双鱼座", "鼠", "fit", "7569");
+    private ArrayList<Integer> s1 = new ArrayList<>();
+    private Nurse nurse;
     private User user = new User();
     private Patient patient = new Patient();
 
@@ -40,6 +40,8 @@ public class TestData {
     private ArrayList<String> orderAccepted = new ArrayList<>();
 
     public TestData() {
+        s1.add(1);
+        nurse = new Nurse("牛大",123456,0,20,10, "广东", 90, 150, s1, 150, 100, "A", "汉族", "123identify", "双鱼座", "鼠", "fit", "7569");
         this.getNewOrderList().add(order_1);
         this.getNewOrderList().add(order_2);
         this.getNewOrderList().add(order_3);

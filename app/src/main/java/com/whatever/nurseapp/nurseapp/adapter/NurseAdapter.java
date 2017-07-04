@@ -15,6 +15,7 @@ import com.whatever.nurseapp.nurseapp.Int_to_filed;
 import com.whatever.nurseapp.nurseapp.entity.Nurse;
 import com.whatever.nurseapp.nurseapp.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class NurseAdapter extends ArrayAdapter<Nurse>{
@@ -38,16 +39,16 @@ public class NurseAdapter extends ArrayAdapter<Nurse>{
         TextView filed = (TextView)view.findViewById(R.id.filed);//护理范围
         TextView phone = (TextView)view.findViewById(R.id.textView_tel);//电话
         TextView nation = (TextView)view.findViewById(R.id.nation);//民族
-        int[] filed_List = nu.getNurseProtectArea();
-        String[] filed_String = new String[filed_List.length];
-        for(int i= 0;i<filed_List.length;i++){
-            filed_String[i] = Int_to_filed.to_filed(filed_List[i]);
+        ArrayList<Integer> filed_List = nu.getNurseProtectArea();
+        String[] filed_String = new String[filed_List.size()];
+        for(int i= 0;i<filed_List.size();i++){
+            filed_String[i] = Int_to_filed.to_filed(filed_List.get(i));
         }
 
         String set_filed = "护理范围:";
-        for(int i = 0;i<filed_List.length;i++){
+        for(int i = 0;i<filed_List.size();i++){
             set_filed = set_filed+filed_String[i];
-            if(i%2==0&&i!=filed_List.length-1){
+            if(i%2==0&&i!=filed_List.size()-1){
                 set_filed += " ";
             }
         }

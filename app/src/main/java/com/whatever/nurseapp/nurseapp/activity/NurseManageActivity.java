@@ -107,8 +107,11 @@ public class NurseManageActivity extends AppCompatActivity {
                                         Toast.LENGTH_SHORT).show();
                                 ArrayList<Nurse> TestList = new ArrayList<>();
                                 //修改绑定数据源
-                                int[] s3 = {3};
-                                int[] s4 = {3,4};
+                                ArrayList<Integer> s3 = new ArrayList<Integer>();
+                                s3.add(3);
+                                ArrayList<Integer> s4 = new ArrayList<Integer>();
+                                s4.add(3);
+                                s4.add(4);
                                 TestList.add(new Nurse("牛大逼",123456,0,20,10, "广东", 90, 150, s3, 150, 100, "A", "汉族", "123identify", "双鱼座", "鼠", "fit", "7569"));
                                 TestList.add(new Nurse("牛鬼蛇",987654321,1,25,5, "湖南", 80, 250, s4, 160, 120, "AB", "回族", "456identify", "处女座", "牛", "fitshai", "10010"));
                                 NurseAdapter TestAdapter = new NurseAdapter(NurseManageActivity.this, R.layout.nurse_detail,TestList);
@@ -144,7 +147,7 @@ public class NurseManageActivity extends AppCompatActivity {
                 bundle.putString("Nurse_Area", nurse.getNurseArea());
                 bundle.putInt("Nurse_evaluate", nurse.getNurseEvaluate());
                 bundle.putInt("Nurse_price", nurse.getNursePrice());
-                bundle.putIntArray("Nurse_filed",nurse.getNurseProtectArea());
+                bundle.putIntegerArrayList("Nurse_filed",nurse.getNurseProtectArea());
                 bundle.putInt("Nurse_height",nurse.getNurseHeigt());
                 bundle.putInt("Nurse_weight",nurse.getNurseWeight());
                 bundle.putString("BloodType",nurse.getNurseBloodType());
@@ -217,11 +220,11 @@ public class NurseManageActivity extends AppCompatActivity {
                     nurse_temp.setNurseConstellation(constellation);
                     nurse_temp.setNurseDescription(description);
                     String[] filed_array = filed.split(" ");
-                    int[] filed_intarray = new int[filed_array.length];
+                    ArrayList<Integer> filed_intarray = new ArrayList<>(filed_array.length);
                     for(int i = 0;i<filed_array.length;i++){
                         for(int n = 0;n< Int_to_filed.filed_length();n++){
                             if(filed_array[i].equals(Int_to_filed.to_filed(n))) {
-                                filed_intarray[i] = n;
+                                filed_intarray.add(n);
                             }
                         }
                     }
