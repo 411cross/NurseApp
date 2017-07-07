@@ -6,13 +6,12 @@
     android:layout_height="match_parent"
     tools:context="com.whatever.nurseapp.nurseapp.activity.ChooseNurseActivity">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="选择护工"
-        android:textSize="20sp"/>
+    <ListView
+        android:id="@+id/nurse_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/et_search" />
 
 </RelativeLayout>

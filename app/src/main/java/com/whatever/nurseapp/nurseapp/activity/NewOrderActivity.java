@@ -120,11 +120,14 @@ public class NewOrderActivity extends AppCompatActivity {
                 Bundle bundle = data.getExtras();
                 int position = bundle.getInt("position");
                 int situation = bundle.getInt("situation");
+                int newChoseNurse = bundle.getInt("chose_nurse");
+                System.out.println("situation"+situation);
+                System.out.println("chose"+newChoseNurse);
                 if (orderListView != null) {
                     int start = orderListView.getFirstVisiblePosition();
                     View view = orderListView.getChildAt(position - start);
                     TextView refresh = (TextView) view.findViewById(R.id.situation);
-
+                    TextView choiceRefresh = (TextView) view.findViewById(R.id.chose_nurse);
                     switch (situation) {
                         case 1:
                             break;
@@ -143,6 +146,11 @@ public class NewOrderActivity extends AppCompatActivity {
                         default:
                             break;
                     }
+
+                    if (newChoseNurse == 1) {
+                        choiceRefresh.setText("已选择护工");
+                    }
+
                 }
 
             }

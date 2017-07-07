@@ -56,7 +56,13 @@ public class OrderAdapter extends ArrayAdapter<Order>{
                 image_id = R.mipmap.waike;
                 break;
             case 3:
-                image_id = R.mipmap.chanke;
+                image_id = R.mipmap.linshi;
+                break;
+            case 4:
+                image_id = R.mipmap.biaozhun;
+                break;
+            case 5:
+                image_id = R.mipmap.zhongzheng;
                 break;
             default:
                 image_id = R.mipmap.ic_launcher_round;

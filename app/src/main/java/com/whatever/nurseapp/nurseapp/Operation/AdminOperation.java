@@ -21,6 +21,7 @@ public class AdminOperation {
     public static ArrayList<Nurse> nurseListAll = new ArrayList<>();
     public static ArrayList<Nurse> areaNurseList = new ArrayList<>();
     public static ArrayList<Order> orderList = new ArrayList<>();
+    public static ArrayList<Nurse> tempNurseList = new ArrayList<>();
 
     /**
      * 用户登录

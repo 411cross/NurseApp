@@ -31,6 +31,13 @@ import java.util.concurrent.ExecutionException;
 public class OrderDetailActivity extends AppCompatActivity {
 
     int position;
+    RelativeLayout nurseInfo;
+    RelativeLayout addNurse;
+    TextView nurseTv;
+    TextView evaluationTv;
+    TextView heightTv;
+    TextView weightTv;
+    TextView bloodTypeTv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +51,7 @@ public class OrderDetailActivity extends AppCompatActivity {
         final int orderID = bundle.getInt("orderID");
         String price = bundle.getString("price");
         String time = bundle.getString("time");
-        int type = bundle.getInt("type");
+        final int type = bundle.getInt("type");
         final int situation = bundle.getInt("situation");
         int notified = bundle.getInt("notified");
         int choseNurse = bundle.getInt("choseNurse");
@@ -76,19 +83,19 @@ public class OrderDetailActivity extends AppCompatActivity {
         TextView phoneTv = (TextView) findViewById(R.id.phone);
         TextView typeTv = (TextView) findViewById(R.id.type);
         TextView serviceTimeTv = (TextView) findViewById(R.id.service_time);
-        TextView nurseTv = (TextView) findViewById(R.id.nurse_name);
-        TextView evaluationTv = (TextView) findViewById(R.id.evaluation);
-        TextView heightTv = (TextView) findViewById(R.id.height);
-        TextView weightTv = (TextView) findViewById(R.id.weight);
-        TextView bloodTypeTv = (TextView) findViewById(R.id.blood_type);
+        nurseTv = (TextView) findViewById(R.id.nurse_name);
+        evaluationTv = (TextView) findViewById(R.id.evaluation);
+        heightTv = (TextView) findViewById(R.id.height);
+        weightTv = (TextView) findViewById(R.id.weight);
+        bloodTypeTv = (TextView) findViewById(R.id.blood_type);
         Button addBtn = (Button) findViewById(R.id.add_button);
 
         final Button finishBtn = (Button) findViewById(R.id.finish);
         final Button acceptBtn = (Button) findViewById(R.id.accept);
         final Button rejectBtn = (Button) findViewById(R.id.reject);
         final Button notifyBtn = (Button) findViewById(R.id.notify);
-        RelativeLayout nurseInfo = (RelativeLayout) findViewById(R.id.nurseInfo_relativeLayout);
-        final RelativeLayout addNurse = (RelativeLayout) findViewById(R.id.addNurse_relativeLayout);
+        nurseInfo = (RelativeLayout) findViewById(R.id.nurseInfo_relativeLayout);
+        addNurse = (RelativeLayout) findViewById(R.id.addNurse_relativeLayout);
 
         orderIDTv.setText(String.valueOf(orderID));
         priceTv.setText(price);
@@ -107,13 +114,19 @@ public class OrderDetailActivity extends AppCompatActivity {
 
         switch (type) {
             case 1:
-                typeTv.setText("内科");
+                typeTv.setText("内科护理");
                 break;
             case 2:
-                typeTv.setText("外科");
+                typeTv.setText("外科护理");
                 break;
             case 3:
-                typeTv.setText("妇产科");
+                typeTv.setText("临时护理");
+                break;
+            case 4:
+                typeTv.setText("标准护理");
+                break;
+            case 5:
+                typeTv.setText("重症护理");
                 break;
             default:
                 break;
@@ -221,6 +234,7 @@ public class OrderDetailActivity extends AppCompatActivity {
                                 Bundle bundle = new Bundle();
                                 bundle.putInt("position", position);
                                 bundle.putInt("situation", 4);
+                                bundle.putInt("chose_nurse", 1);
                                 Intent intent = new Intent();
                                 intent.putExtras(bundle);
                                 // 设置返回结果为RESULT_OK, intent可以传入一些其他的参数, 在onActivityResult中的data中可以获取到
@@ -420,12 +434,40 @@ public class OrderDetailActivity extends AppCompatActivity {
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putInt("order_id", orderID);
+                bundle.putInt("area", type);
+                System.out.println(type);
                 Intent intent = new Intent(OrderDetailActivity.this, ChooseNurseActivity.class);
-                startActivity(intent);
+                intent.putExtras(bundle);
+                startActivityForResult(intent, 1);
             }
         });
 
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            if (requestCode == 1) {
+                Bundle bundle = data.getExtras();
+                String nurseName = bundle.getString("nurse_name");
+                int nurseEvaluation = bundle.getInt("nurse_evaluation");
+                int nurseHeight = bundle.getInt("nurse_height");
+                int nurseWeight = bundle.getInt("nurse_weight");
+                String nurseBloodType = bundle.getString("nurse_blood_type");
+                addNurse.setVisibility(View.INVISIBLE);
+                nurseInfo.setVisibility(View.VISIBLE);
+                nurseTv.setText(nurseName);
+                evaluationTv.setText(String.valueOf(nurseEvaluation));
+                heightTv.setText(String.valueOf(nurseHeight));
+                weightTv.setText(String.valueOf(nurseWeight));
+                bloodTypeTv.setText(nurseBloodType);
+
+            }
+        }
     }
 
 }

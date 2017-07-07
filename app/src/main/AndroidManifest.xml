@@ -34,7 +34,8 @@
         <activity android:name=".activity.ChooseNurseActivity" />
         <activity android:name=".activity.MoreDetailActivity" />
         <activity android:name=".activity.AddNurseActivity" />
-        <activity android:name=".activity.AddNurse" />
+        <activity android:name=".activity.SearchResultActivity" />
+        <activity android:name=".activity.MultiResultActivity" />
     </application>
 
 </manifest>

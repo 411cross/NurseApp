@@ -41,9 +41,9 @@ public class NurseAdapter extends ArrayAdapter<Nurse>{
         TextView nation = (TextView)view.findViewById(R.id.nation);//民族
         ArrayList<Integer> filed_List = nu.getNurseProtectArea();
         String[] filed_String = new String[filed_List.size()];
-        for(int i= 0;i<filed_List.size();i++){
-            filed_String[i] = Int_to_filed.to_filed(filed_List.get(i));
-        }
+//        for(int i= 0;i<filed_List.size();i++){
+//            filed_String[i] = Int_to_filed.to_filed(filed_List.get(i));
+//        }
 
         String set_filed = "护理范围:";
         for(int i = 0;i<filed_List.size();i++){

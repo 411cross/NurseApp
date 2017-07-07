@@ -61,5 +61,22 @@ public class OrderOperation {
 
     }
 
+    /**
+     * 为病人选择护工
+     * 输入  状态
+     * 输出 状态码和返回信息
+     */
+    public static ArrayList chooseNurseForPatient(int id, int nurseId) throws JSONException, ExecutionException, InterruptedException {
+        okHttpTools okhttpT = new okHttpTools();
+        JSONObject jObject = new JSONObject();
+        jObject.put("id", id);
+        jObject.put("n_id", nurseId);
+        String Json = jObject.toString();
+        String URL = "http://139.199.226.190:8888/NurseApp/choosenurseforpatient";
+        okhttpT.postTools(URL, Json);
+        return okhttpT.getResponse();
+
+    }
+
 
 }

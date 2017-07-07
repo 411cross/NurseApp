@@ -18,6 +18,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.whatever.nurseapp.nurseapp.Int_to_filed;
+import com.whatever.nurseapp.nurseapp.Operation.NurseOperation;
+import com.whatever.nurseapp.nurseapp.Operation.OrderOperation;
 import com.whatever.nurseapp.nurseapp.R;
 import com.whatever.nurseapp.nurseapp.entity.Nurse;
 
@@ -25,6 +27,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 public class UpdateNurse extends AppCompatActivity {
     private EditText name;
@@ -49,6 +52,7 @@ public class UpdateNurse extends AppCompatActivity {
     private Button update;
     private RadioButton male;
     private RadioButton female;
+    int index;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,9 +62,10 @@ public class UpdateNurse extends AppCompatActivity {
         final Intent intent = new Intent();
         Bundle bundle = this.getIntent().getExtras();
         String set_filed_bundle = "";
+        index = bundle.getInt("index");
         final int position = bundle.getInt("position");
         String name_bundle = bundle.getString("Nurse_name");
-        String id_bundle = bundle.getInt("Nurse_Id") + "";
+        final int id_bundle = bundle.getInt("Nurse_Id");
         String workage_bundle = bundle.getInt("Nurse_workage") + "";
         String age_bundle = bundle.getInt("Nurse_age") + "";
         String phone_bundle = bundle.getString("Nurse_phone");
@@ -106,7 +111,7 @@ public class UpdateNurse extends AppCompatActivity {
         else
             female.setChecked(true);
         name.setText(name_bundle);
-        id.setText(id_bundle);
+        id.setText(String.valueOf(id_bundle));
         workAge.setText(workage_bundle);
         evaluate.setText(evaluate_bundle);
         age.setText(age_bundle);
@@ -148,8 +153,24 @@ public class UpdateNurse extends AppCompatActivity {
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
+                                try {
+                                    ArrayList list = NurseOperation.deleteNurse(id_bundle);
+                                    if (Integer.parseInt((String) list.get(0)) == 200) {
+                                        Toast.makeText(UpdateNurse.this, "删除成功", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        JSONObject object = new JSONObject((String) list.get(1));
+                                        String message = object.getString("data");
+                                        Toast.makeText(UpdateNurse.this, message, Toast.LENGTH_SHORT).show();
+                                    }
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                } catch (ExecutionException e) {
+                                    e.printStackTrace();
+                                }
                                 Intent intent = new Intent();
-                                intent.putExtra("id",id.getText().toString());
+                                intent.putExtra("index", index);
                                 setResult(3,intent);
                                 finish();
                             }
@@ -207,7 +228,6 @@ public class UpdateNurse extends AppCompatActivity {
 
 
                 Bundle bundle = new Bundle();
-
                 bundle.putString("name", name_commit);
                 bundle.putString("id", id_commit);
                 bundle.putString("work_age", workage_commit);

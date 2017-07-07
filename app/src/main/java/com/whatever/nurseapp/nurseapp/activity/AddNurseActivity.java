@@ -23,6 +23,7 @@ import com.whatever.nurseapp.nurseapp.adapter.NurseAdapter;
 import com.whatever.nurseapp.nurseapp.entity.Nurse;
 
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
@@ -84,7 +85,7 @@ public class AddNurseActivity extends AppCompatActivity{
                 if (sex_female.isChecked()) {
                     sex_int = 1;
                 }
-                ArrayList<Integer> nurseProtectArea = new ArrayList<Integer>();
+                ArrayList<Integer> nurseProtectArea = new ArrayList<>();
                 nurseProtectArea.add(1);
                 nurseProtectArea.add(2);
                 Nurse newNurse = new Nurse(editText_name.getText().toString(), Integer.valueOf(editText_id.getText().toString()), sex_int, Integer.valueOf(editText_age.getText().toString()),
@@ -94,14 +95,19 @@ public class AddNurseActivity extends AppCompatActivity{
                         editText_description.getText().toString(), editText_phone.getText().toString());
                 System.out.println(newNurse.getNurseId());
                 try {
-                    NurseOperation.addNurse(newNurse);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                } catch (ExecutionException e) {
-                    e.printStackTrace();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    ArrayList list = NurseOperation.addNurse(newNurse);
+                    if (Integer.parseInt((String) list.get(0)) == 200) {
+                        JSONObject object = new JSONObject((String) list.get(1));
+                        String message = object.getString("data");
+                    }
+                } catch(JSONException e){
+                        e.printStackTrace();
+                } catch(ExecutionException e){
+                        e.printStackTrace();
+                } catch(InterruptedException e){
+                        e.printStackTrace();
                 }
+
             }
         });
 

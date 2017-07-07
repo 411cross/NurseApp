@@ -41,10 +41,10 @@ public class NurseOperation {
             String nurseArea = nursesData.getString("nurseArea");
             int nurseEvaluate = nursesData.getInt("nurseWorkAge");
             int nursePrice = nursesData.getInt("nurseWorkAge");
-            ArrayList<Integer> nurseProtectArea = new ArrayList<Integer>();
+            ArrayList<Integer> nurseProtectArea = new ArrayList<>();
             JSONArray nurseProtectAreaList = nursesData.getJSONArray("nurseProtectArea");
             for (int j = 0; j < nurseProtectAreaList.length(); j++) {
-                nurseProtectArea.add(nurseProtectAreaList.getInt(i));
+                nurseProtectArea.add(nurseProtectAreaList.getInt(j));
             }
             int nurseHeight = nursesData.getInt("nurseHeight");
             int nurseWeight = nursesData.getInt("nurseWeight");
@@ -92,7 +92,7 @@ public class NurseOperation {
             ArrayList<Integer> nurseProtectArea = new ArrayList<Integer>();
             JSONArray nurseProtectAreaList = nursesData.getJSONArray("nurseProtectArea");
             for (int j = 0; j < nurseProtectAreaList.length(); j++) {
-                nurseProtectArea.add(nurseProtectAreaList.getInt(i));
+                nurseProtectArea.add(nurseProtectAreaList.getInt(j));
             }
             int nurseHeight = nursesData.getInt("nurseHeight");
             int nurseWeight = nursesData.getInt("nurseWeight");
@@ -124,6 +124,7 @@ public class NurseOperation {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("area", area);
         String json = jsonObject.toString();
+        System.out.println(json);
         okhttpT.postTools(URL, json);
         String data = (String) okhttpT.getResponse().get(1);
         JSONObject object = new JSONObject(data);
@@ -140,7 +141,7 @@ public class NurseOperation {
             ArrayList<Integer> nurseProtectArea = new ArrayList<>();
             JSONArray nurseProtectAreaList = nursesData.getJSONArray("nurseProtectArea");
             for (int j = 0; j < nurseProtectAreaList.length(); j++) {
-                nurseProtectArea.add(nurseProtectAreaList.getInt(i));
+                nurseProtectArea.add(nurseProtectAreaList.getInt(j));
             }
             int nurseHeight = nursesData.getInt("nurseHeight");
             int nurseWeight = nursesData.getInt("nurseWeight");
@@ -174,12 +175,31 @@ public class NurseOperation {
 
         Gson gson = new Gson();
         String json = gson.toJson(nurse);
-        Log.i("=========", json);
         okht.postTools(URL, json);
 
         ArrayList responseList = okht.getResponse();
 
-        return okht.getResponse();
+        return responseList;
+    }
+
+    /**
+     * 添加护工
+     * 输入 无
+     * 输出 状态码和返回信息
+     */
+    public static ArrayList deleteNurse(int id) throws JSONException, ExecutionException, InterruptedException {
+
+        okHttpTools okht = new okHttpTools();
+        String URL = "http://139.199.226.190:8888/NurseApp/deletenurse";
+//        String URL = "http://10.0.2.2:8080/addnurse";
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("id", id);
+        String json = jsonObject.toString();
+        okht.postTools(URL, json);
+
+        ArrayList responseList = okht.getResponse();
+
+        return responseList;
     }
 
 }
